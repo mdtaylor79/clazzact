@@ -429,13 +429,6 @@
       margin-top: 60px;
     }
 
-    .lyrics-grid .lyric-card:nth-child(5) {
-      grid-column: 1 / -1;
-      max-width: 50%;
-      margin: 0 auto;
-      width: 100%;
-    }
-
     .lyric-card {
       background: #0d0d0d;
       padding: 40px 36px;
@@ -1003,7 +996,7 @@
 
     <div class="music-grid reveal">
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C296N2','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">01</span>
@@ -1012,7 +1005,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3CGLVD1','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">02</span>
@@ -1021,7 +1014,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C4HDDY','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">03</span>
@@ -1030,7 +1023,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C48XW2','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">04</span>
@@ -1039,7 +1032,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C1KHQH','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">05</span>
@@ -1151,6 +1144,17 @@
         </div>
       </div>
 
+      <div class="lyric-card" onclick="openLyrics(5)">
+        <div>
+          <div class="lyric-card-num">06</div>
+          <div class="lyric-card-title">Am I Trippin?</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1174,8 +1178,8 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="media-grid reveal" style="grid-template-columns:1fr 1fr; grid-template-rows:auto;">
-      <div class="media-item" style="grid-column:span 1;">
+    <div class="media-grid reveal" style="grid-template-columns:1fr;">
+      <div class="media-item" >
         <div style="position:relative; width:100%; padding-bottom:56.25%; background:#000;">
           <iframe
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
@@ -1188,15 +1192,7 @@
         </div>
         <div class="media-caption">CLAZZ@CT — Official Video</div>
       </div>
-      <div class="media-item" style="grid-column:span 1;">
-        <div class="media-placeholder" style="padding-bottom:56.25%;">
-          <div class="media-placeholder-label">
-            <div class="play-icon"></div>
-            <span style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:12px;">Coming Soon</span>
-          </div>
-        </div>
-        <div class="media-caption">Am I Trippin? — Official Video</div>
-      </div>
+
     </div>
   </section>
 
@@ -1327,6 +1323,10 @@
       {
         num: "05", title: "Why Not Listen to This?", feat: "", tag: "Single",
         body: `<p>Yeah…<br>Turn the volume down for a second.<br>I got a question.<br>If music can influence destruction…<br>Why can't it influence construction?</p><p><em>Why not listen to this?<br>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>They market confusion and call it expression<br>Market self-destruction and call it progression<br>Market addiction, division, and rage<br>Then wonder why society trapped in a cage</p><p>What happened to music that helped people believe?<br>What happened to records that built aspiration?<br>Songs that inspired entire generations?<br>Songs that made fathers wanna be better men?<br>Songs that made people wanna build again?</p><p>Now every playlist flooded with excess<br>More greed, more violence, more reckless<br>And the people profitin' from it ain't livin' that life<br>They safe in the hills while communities fight</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>It's culture merchants and attention dealers<br>People who monetize wounds they never had to live with<br>They study demographics, insecurities, vulnerabilities<br>Then package destruction in attractive forms<br>Till dysfunction become socially normal</p><p>What if the most rebellious thing today…<br>Is discipline?<br>What if the strongest message…<br>Is responsibility?<br>What if growth became louder than chaos?</p><p>Cause music shape culture<br>Culture shape behavior<br>Behavior shape families<br>Families shape neighbors<br>Neighbors shape communities<br>Communities shape nations<br>Everything connected through generations</p><p>Nah.<br>I believe music can still elevate<br>Still educate<br>Still motivate<br>Still inspire people to become somethin' greater<br>Instead of merely becoming a customer later</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?</em></p><p>If music can influence destruction…<br>Then music can influence growth.<br>If words can become weapons…<br>Then words can become tools.<br>And if people are willing to listen…<br>Maybe we can build something worth hearing.</p>`
+      },
+      {
+        num: "06", title: "Am I Trippin?", feat: "", tag: "Single",
+        body: `<p>"Am I trippin… trippin… trippin…"</p><p>Sometimes I sit back and replay conversations…<br>Arguments…<br>Ego…<br>Pride…<br>And I gotta ask myself…<br>Was it even worth it?</p><p>I done lost focus arguin' with fools<br>Tryna prove points to people makin' emotional rules<br>Every conversation turn into combat<br>Like everybody online gotta constantly react<br>I said things outta anger I should've ignored<br>Fed energy to people I should've outgrown<br>Now I'm sittin' in silence replayin' discussions<br>Wonderin' why my spirit feel filled with destruction</p><p><em>Am I trippin?<br>Why I keep givin' my peace away?<br>Why I keep entertainin' things that delay?<br>Every hour spent angry is a debt on my future<br>And stubbornness slowly turn wisdom into tumors</em></p><p>See…<br>Part of me still young and impulsive<br>Wanna respond fast when disrespect get explosive<br>Another part of me older and observant<br>Tellin' me real power move quieter with purpose</p><p>"Was it worth it?"<br>"Worth it?"<br>"Worth jeopardizin' everything?"</p><p>I been battlin' myself more than anybody else<br>Ego on one shoulder, growth somewhere else<br>One side say "crash out, make your point clear"<br>Other side whisper "focus, your future right here"</p><p>And that's the war nobody really see<br>The war between the man and who I used to be<br>Cause pride feel good in the moment sometimes<br>Till consequences pull up and collect over time</p><p><em>Am I trippin?<br>Cause lately I been too emotionally invested<br>In people who probably ain't mentally developed<br>Too much energy spent on temporary friction<br>While my real goals waitin' on my attention</em></p><p>That hit me hard.<br>Like… why am I fightin' to be understood<br>By people comfortable stayin' misunderstood?<br>Why I keep explainin' myself to the blind<br>Then get frustrated when they can't read my mind?</p><p>Maybe…<br>I ain't crazy.<br>Maybe I just finally see<br>That every battle don't deserve me.</p><p>I got dreams bigger than emotional reactions<br>Bigger than arguments fueled by distractions<br>But youth still inside me throwin' punches at reason<br>Still wanna defend every wound every season</p><p>And stubbornness dangerous when mixed with intelligence<br>Cause now you got pride backed by real evidence<br>You know you right so you push even harder<br>Till your own emotions become your saboteur</p><p>That's why I pause now.<br>Analyze every conversation deeper<br>Ask myself, "Does this build me or weaken?"<br>Cause success require discipline under pressure<br>And emotional maturity the real measure</p><p><em>Am I trippin?<br>Or finally growin' into who I should be?<br>Cause lately peace look stronger to me<br>I still got fire, still got fight in my chest<br>But now I'm learnin' every response ain't my test</em></p><p>"Am I trippin…"<br>"Or finally waking up…"</p><p>Maybe the strongest thing I can do…<br>Is stop fighting battles<br>That pull me away from myself.</p>`
       }
     ];
 
