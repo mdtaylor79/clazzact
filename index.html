@@ -422,60 +422,189 @@
       background: var(--dark-gray);
     }
 
-    .lyrics-list {
+    .lyrics-grid {
       display: grid;
-      gap: 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
       margin-top: 60px;
+    }
+
+    .lyrics-grid .lyric-card:nth-child(5) {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .lyric-card {
+      background: #0d0d0d;
+      padding: 40px 36px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.25s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+
+    .lyric-card:hover {
+      background: #181818;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .lyric-card-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .lyric-card-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.05;
+      flex: 1;
+    }
+
+    .lyric-card-feat {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.45);
+      text-transform: none;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .lyric-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .lyric-item {
-      padding: 32px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      cursor: pointer;
-      transition: padding-left 0.3s ease;
-      display: grid;
-      grid-template-columns: 60px 1fr auto;
-      align-items: start;
-      gap: 24px;
-    }
-
-    .lyric-item:hover {
-      padding-left: 16px;
-    }
-
-    .lyric-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.15em;
-      color: var(--gray);
-      padding-top: 4px;
-    }
-
-    .lyric-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: clamp(20px, 3vw, 32px);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .lyric-excerpt {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.7;
-      margin-top: 8px;
-      font-style: italic;
-    }
-
-    .lyric-tag {
+    .lyric-card-tag {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--gray);
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      white-space: nowrap;
-      padding-top: 6px;
+      color: var(--gray);
+    }
+
+    .lyric-card-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .lyric-card:hover .lyric-card-cta {
+      color: var(--white);
+    }
+
+    /* ─── LYRICS MODAL ─── */
+    .lyrics-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 60px 24px;
+    }
+
+    .lyrics-modal-overlay.open {
+      display: flex;
+    }
+
+    .lyrics-modal {
+      background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,0.1);
+      max-width: 680px;
+      width: 100%;
+      padding: 56px 56px 48px;
+      position: relative;
+    }
+
+    .lyrics-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .lyrics-modal-close:hover { color: var(--white); }
+
+    .lyrics-modal-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .lyrics-modal-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .lyrics-modal-feat {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .lyrics-modal-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin-bottom: 36px;
+    }
+
+    .lyrics-modal-body p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 22px;
+    }
+
+    .lyrics-modal-body p em {
+      color: rgba(255,255,255,0.92);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .lyrics-grid { grid-template-columns: 1fr; }
+      .lyrics-grid .lyric-card:nth-child(5) { max-width: 100%; }
+      .lyrics-modal { padding: 40px 28px 36px; }
     }
 
     /* ─── MEDIA ─── */
@@ -777,30 +906,6 @@
     }
 
 
-    /* ─── FULL LYRICS ─── */
-    .lyric-full {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 20px;
-    }
-
-    .lyric-full p {
-      font-size: 15px;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 20px;
-    }
-
-    .lyric-full p em {
-      color: rgba(255,255,255,0.9);
-      font-style: normal;
-      font-weight: 500;
-    }
-
-    .lyric-item.expandable .lyric-title::after {
-      content: ' +';
-      font-size: 0.75em;
-      opacity: 0.4;
-    }
 
     /* ─── SCROLL REVEAL (simple fade) ─── */
     .reveal {
@@ -898,8 +1003,7 @@
 
     <div class="music-grid reveal">
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C296N2','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder">
-          <span class="track-placeholder-icon">♫</span>
+        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">01</span>
@@ -908,8 +1012,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3CGLVD1','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder">
-          <span class="track-placeholder-icon">♫</span>
+        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">02</span>
@@ -918,8 +1021,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C4HDDY','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder">
-          <span class="track-placeholder-icon">♫</span>
+        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">03</span>
@@ -928,8 +1030,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C48XW2','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder">
-          <span class="track-placeholder-icon">♫</span>
+        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">04</span>
@@ -938,8 +1039,7 @@
         </div>
       </div>
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C1KHQH','_blank')" style="cursor:pointer;">
-        <div class="track-placeholder">
-          <span class="track-placeholder-icon">♫</span>
+        <div class="track-placeholder" style="background-image:url('img/album-art.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
         </div>
         <div class="track-card-inner">
           <span class="track-num">05</span>
@@ -992,130 +1092,79 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="lyrics-list reveal">
-      <div class="lyric-item" onclick="toggleLyrics('lyrics01')" style="cursor:pointer; flex-direction:column; align-items:stretch;">
-        <div style="display:grid; grid-template-columns:60px 1fr auto; gap:24px; align-items:start;">
-          <span class="lyric-num">01</span>
-          <div>
-            <div class="lyric-title">Just Gotta Slow Down &amp; Think</div>
-            <div class="lyric-excerpt">"I spent too much time lookin' for validation / tryna fill empty spaces through conversation / smilin' outside while my soul felt tired..."</div>
-          </div>
-          <span class="lyric-tag">Single</span>
-        </div>
-        <div id="lyrics01" class="lyric-full" style="display:none; padding:32px 0 16px 60px;">
-          <p>Yeah…</p>
-          <p>Late nights alone really teach you things.<br>Sometimes the hardest relationship to fix…<br>Is the one you got with yourself.</p>
-          <p>I spent too much time lookin' for validation<br>Tryna fill empty spaces through conversation<br>Smilin' outside while my soul felt tired<br>Buildin' everybody else while I slowly expired<br>And nobody noticed.</p>
-          <p>Cause I got good at wearin' masks<br>Laughin' through pain while avoidin' my past<br>Every scar turned into hidden frustration<br>Every disappointment shaped my hesitation</p>
-          <p>I used to think love came from somebody else<br>Till I sat in silence forced to face myself<br>And honestly?<br>I ain't even know me deeply<br>Too busy seekin' approval from people who couldn't keep me</p>
-          <p><em>So now I'm learnin' to love me<br>Even on the nights it get ugly<br>Even when the mirror show pain beneath<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p>
-          <p>See self-love deeper than confidence quotes<br>Deeper than pretendin' everything growth<br>Sometimes self-love look like cuttin' people off<br>Sometimes it's cryin' while rebuildin' from loss<br>Sometimes it's restin' when your spirit exhausted<br>Sometimes it's realizin' trauma distorted<br>How you saw yourself all these years<br>Now you tryna separate your worth from your fears</p>
-          <p>And that process painful.<br>Cause healing force you to sit with yourself<br>No distractions, no lies, no help<br>Just truth echoing loud through the room<br>While you confront every wound you consumed</p>
-          <p>But I'm tired of punishin' myself mentally<br>Tired of speakin' doubt over my energy<br>Tired of feelin' unworthy of peace<br>When I survived things that could've buried me deep</p>
-          <p>Maybe I deserved patience too.<br>Maybe I deserved understanding too.<br>Maybe…<br>I needed my own love the most.</p>
-          <p>So now I protect my peace different<br>Move slower, think deeper, love wiser with it<br>No more chasin' people who drain my soul<br>No more abandonin' myself for control<br>I learned boundaries holy<br>I learned solitude can restore me<br>I learned growth ain't loud all the time<br>Sometimes it's quiet healing inside your mind</p>
-          <p>And yeah, I still got nights I overthink<br>Still got moments I feel incomplete<br>But now I catch myself before I fall apart<br>Cause I finally started listenin' to my heart</p>
-          <p>And maybe that's what self-love really is<br>Not perfection, just acceptance within<br>Knowin' you flawed but still worthy of care<br>Still worthy of breath, purpose, and prayer</p>
-          <p><em>I'm still learnin' to love me<br>Even through the chaos inside me<br>Even when life feel heavy on me<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p>
-          <p>For the first time in a long time…<br>I looked in the mirror…<br>And didn't hate who was lookin' back at me.</p>
-        </div>
-      </div>
-      <div class="lyric-item" onclick="toggleLyrics('lyrics02')" style="cursor:pointer; flex-direction:column; align-items:stretch;">
-        <div style="display:grid; grid-template-columns:60px 1fr auto; gap:24px; align-items:start;">
-          <span class="lyric-num">02</span>
-          <div>
-            <div class="lyric-title">Accountability for Sale <span style="font-size:0.55em; font-weight:400; letter-spacing:0.05em; opacity:0.6; text-transform:none;">feat. L.E. Vayshun &amp; Blasha</span></div>
-            <div class="lyric-excerpt">"Everybody got a reason. Everybody got an explanation. Everybody got somebody else to blame. But who responsible?"</div>
-          </div>
-          <span class="lyric-tag">Single</span>
-        </div>
-        <div id="lyrics02" class="lyric-full" style="display:none; padding:32px 0 16px 60px;">
-          <p>Everybody got a reason.<br>Everybody got an explanation.<br>Everybody got a diagnosis.<br>Everybody got somebody else to blame.<br>But who responsible?</p>
-          <p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p>
-          <p>I see a world addicted to explanations<br>Every action need a public justification<br>Every bad choice need a softer definition<br>Till consequences disappear from the discussion</p>
-          <p>Now don't get it twisted, pain is real<br>Mental health struggles absolutely real<br>People fight battles nobody can see<br>And compassion should exist naturally</p>
-          <p>But somewhere we confused understanding with exemption<br>Like accountability became offensive to mention<br>Sometimes trauma involved, sometimes life got rough<br>And sometimes somebody simply made a bad choice, enough</p>
-          <p>Cause every mistake ain't a condition to diagnose<br>Every weakness ain't a disorder to disclose<br>Sometimes growth start where excuses stop<br>And character built when ownership adopted</p>
-          <p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p>
-          <p>Words keep changin', definitions get stretched<br>Till language itself become a political chess set<br>One group redefine terms to gain influence<br>Another group respond and create more confusion<br>Now everybody fightin' over vocabulary<br>While everyday people wonder what's necessary<br>Not because language can't evolve and improve<br>But because power often hide inside who gets to choose</p>
-          <p>And I noticed somethin' strange in the culture lately<br>Everybody demand respect immediately<br>While offerin' none when disagreement appear<br>Then call conversation violence if they hear what they fear<br>Cancel one side, protect another side<br>Apply standards different dependin' on the tribe<br>Rights used against rights in a constant collision<br>Everybody claim justice from their position</p>
-          <p>What happens when every side claims moral authority?<br>What happens when nobody questions themselves?<br>What happens when power wears the mask of virtue?</p>
-          <p>See this ain't about left or right<br>This about truth gettin' lost in the fight<br>About people learnin' that outrage profitable<br>And personal growth less marketable</p>
-          <p>Cause conflict sell.<br>Fear sell.<br>Division sell.<br>Attention sell.</p>
-          <p>But discipline don't trend.<br>Humility don't trend.<br>Self-reflection don't trend.<br>Personal responsibility don't trend.</p>
-          <p>Yet that's where real growth live.</p>
-          <p>I don't think everybody equal in effort and action<br>Even if equal in dignity and human value naturally<br>Cause honor ain't somethin' automatically owed<br>It's developed through choices and character shown</p>
-          <p>And maybe society stronger when we balance both<br>Compassion for pain and accountability for growth<br>Understanding circumstance without removin' agency<br>Recognizin' influence without denyin' responsibility</p>
-          <p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p>
-          <p>A healthy society needs compassion.<br>A healthy society needs freedom.<br>A healthy society needs responsibility too.<br>Take away any one of them...<br>And eventually the whole structure starts to lean.</p>
-        </div>
-      </div>
-      <div class="lyric-item">
-        <span class="lyric-num">03</span>
+    <div class="lyrics-grid reveal">
+
+      <div class="lyric-card" onclick="openLyrics(0)">
         <div>
-          <div class="lyric-title">Learn To Love Me</div>
-          <div class="lyric-excerpt">Coming soon...</div>
+          <div class="lyric-card-num">01</div>
+          <div class="lyric-card-title">Just Gotta Slow Down &amp; Think</div>
         </div>
-        <span class="lyric-tag">Single</span>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
       </div>
-      <div class="lyric-item" onclick="toggleLyrics('lyrics04')" style="cursor:pointer; flex-direction:column; align-items:stretch;">
-        <div style="display:grid; grid-template-columns:60px 1fr auto; gap:24px; align-items:start;">
-          <span class="lyric-num">04</span>
-          <div>
-            <div class="lyric-title">It's Bigger Than Me</div>
-            <div class="lyric-excerpt">"Too many people suffered… too many people sacrificed… too many people carried pain on they back / just so I could stand here today..."</div>
+
+      <div class="lyric-card" onclick="openLyrics(1)">
+        <div>
+          <div class="lyric-card-num">02</div>
+          <div class="lyric-card-title">Accountability for Sale
+            <span class="lyric-card-feat">feat. L.E. Vayshun &amp; Blasha</span>
           </div>
-          <span class="lyric-tag">Single</span>
         </div>
-        <div id="lyrics04" class="lyric-full" style="display:none; padding:32px 0 16px 60px;">
-          <p>Yeah…<br>This ain't just about me.<br>Too many people suffered…<br>Too many people sacrificed…<br>Too many people carried pain on they back<br>Just so I could stand here today.<br>So nah…<br>I can't quit.<br>It's bigger than me.</p>
-          <p>I think about hands with scars on 'em<br>People workin' long shifts with the world on 'em<br>People who got overlooked and disrespected<br>Still woke up every day and stayed invested<br>Some survived wars, some survived chains<br>Some survived poverty and generational pain<br>Some lost dreams just to feed they kids<br>Sacrificed they own life for what I could live</p>
-          <p>And I feel that pressure in my spirit<br>Every time I complain, I can hear it<br>Like "boy, you better stand tall and move"<br>Cause too much blood got spilled for you to lose</p>
-          <p>So when life hit hard I adjust my vision<br>I refuse to drown inside self-pity prisons<br>Nah, the past ain't chains, it's perspective<br>Pain can teach if you learn the lesson</p>
-          <p><em>It's bigger than me<br>Every sacrifice still livin' through me<br>Every struggle built the man I'm tryna be<br>So I move with purpose every step I breathe<br>It's bigger than me<br>No system, no hate gon' bury me<br>No barrier strong enough to stop destiny<br>Cause too many people prayed for me to succeed</em></p>
-          <p>I ain't weaponizin' history for sympathy<br>I'm usin' it to understand responsibility<br>Cause some people stay trapped in yesterday<br>While others take wisdom and create a way<br>See the past always gon' be the past<br>Can't build tomorrow if you only live backwards<br>But you better respect what came before you<br>Cause roots matter if the tree gon' grow too</p>
-          <p>I know young people angry, I understand why<br>But rage alone won't elevate your life<br>You gotta build, think, create, move smarter<br>Turn pain into fuel and push harder<br>Cause my ancestors ain't survive for excuses<br>They endured conditions that would mentally ruin<br>Most people today if they saw that pressure<br>Would fold in a week from the weight and effort</p>
-          <p>Yet they kept movin'.<br>Still had faith through impossible seasons<br>Still had families, dreams, and reasons<br>That's why I can't let temporary setbacks break me<br>Weak mentality could never remake me</p>
-          <p>"Keep goin'…"<br>"Stand tall…"<br>"Don't waste the sacrifice…"</p>
-          <p>I'm young but I finally understand<br>Life bigger than likes and temporary plans<br>Bigger than trends, bigger than online noise<br>Bigger than ego disguised as prideful voice<br>I carry names I may never know<br>People whose bloodline made my growth possible<br>And one day somebody gon' look at me<br>The same way I look at history</p>
-          <p>That hit different.<br>Cause now every move got deeper meaning<br>Every late night got stronger reason<br>I don't just win for me anymore<br>I win for every person who couldn't before</p>
-          <p>No corruption can poison my direction<br>No attitude can weaken my progression<br>No obstacle made by man gon' stop me<br>When generations sacrificed to build me properly</p>
-          <p>The past ain't a place to live.<br>It's a place to learn from.<br>Respect it.<br>Study it.<br>Carry it with honor.<br>Then move forward.</p>
-          <p>Because it's bigger than me.</p>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
         </div>
       </div>
-      <div class="lyric-item" onclick="toggleLyrics('lyrics05')" style="cursor:pointer; flex-direction:column; align-items:stretch;">
-        <div style="display:grid; grid-template-columns:60px 1fr auto; gap:24px; align-items:start;">
-          <span class="lyric-num">05</span>
-          <div>
-            <div class="lyric-title">Why Not Listen to This?</div>
-            <div class="lyric-excerpt">"If music can influence destruction… why can't it influence construction? If the poison get streams, why the medicine miss?"</div>
-          </div>
-          <span class="lyric-tag">Single</span>
+
+      <div class="lyric-card" onclick="openLyrics(2)">
+        <div>
+          <div class="lyric-card-num">03</div>
+          <div class="lyric-card-title">Learn To Love Me</div>
         </div>
-        <div id="lyrics05" class="lyric-full" style="display:none; padding:32px 0 16px 60px;">
-          <p>Yeah…<br>Turn the volume down for a second.<br>I got a question.<br>If music can influence destruction…<br>Why can't it influence construction?</p>
-          <p><em>Why not listen to this?<br>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p>
-          <p>They market confusion and call it expression<br>Market self-destruction and call it progression<br>Market addiction, division, and rage<br>Then wonder why society trapped in a cage</p>
-          <p>And I'm not sayin' every song gotta preach<br>Or every artist gotta stand on a beach<br>Talkin' philosophy every minute they breathe<br>But what happened to music that helped people believe?</p>
-          <p>What happened to records that built aspiration?<br>Songs that inspired entire generations?<br>Songs that made fathers wanna be better men?<br>Songs that made people wanna build again?</p>
-          <p>Now every playlist flooded with excess<br>More greed, more violence, more reckless<br>And the people profitin' from it ain't livin' that life<br>They safe in the hills while communities fight</p>
-          <p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p>
-          <p>And this ain't about race, that's too simple<br>The real game bigger than a single issue<br>It's culture merchants and attention dealers<br>People who monetize wounds they never had to live with</p>
-          <p>They study demographics<br>Study insecurities<br>Study vulnerabilities<br>Study communities<br>Then package destruction in attractive forms<br>Till dysfunction become socially normal</p>
-          <p>And every generation inherit the residue<br>Thinkin' self-destruction what they're supposed to do<br>Cause if all you hear is hopelessness daily<br>Eventually hopelessness start soundin' normal maybe</p>
-          <p>That's why I question what gets amplified<br>And what gets buried while the algorithms decide</p>
-          <p>What if the most rebellious thing today…<br>Is discipline?<br>What if the strongest message…<br>Is responsibility?<br>What if growth became louder than chaos?</p>
-          <p>See I'm not against fun<br>Not against celebration<br>Not against confidence<br>Or healthy motivation<br>But when every road point toward self-destruction<br>We should probably have a serious discussion</p>
-          <p>Cause music shape culture<br>Culture shape behavior<br>Behavior shape families<br>Families shape neighbors<br>Neighbors shape communities<br>Communities shape nations<br>Everything connected through generations</p>
-          <p>And maybe that's why this message matter<br>Cause every young mind deserve somethin' better<br>Than bein' reduced to a consumer profile<br>Fed distractions while somebody else compile<br>The profits<br>The influence<br>The power and control<br>While tellin' people emptiness the ultimate goal</p>
-          <p>Nah.<br>I believe music can still elevate<br>Still educate<br>Still motivate<br>Still inspire people to become somethin' greater<br>Instead of merely becoming a customer later</p>
-          <p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p>
-          <p>If music can influence destruction…<br>Then music can influence growth.<br>If words can become weapons…<br>Then words can become tools.<br>And if people are willing to listen…<br>Maybe we can build something worth hearing.</p>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Coming Soon</span>
         </div>
       </div>
+
+      <div class="lyric-card" onclick="openLyrics(3)">
+        <div>
+          <div class="lyric-card-num">04</div>
+          <div class="lyric-card-title">It's Bigger Than Me</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
+      <div class="lyric-card" onclick="openLyrics(4)">
+        <div>
+          <div class="lyric-card-num">05</div>
+          <div class="lyric-card-title">Why Not Listen to This?</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- LYRICS MODAL -->
+  <div class="lyrics-modal-overlay" id="lyricsModal" onclick="closeLyricsModal(event)">
+    <div class="lyrics-modal">
+      <button class="lyrics-modal-close" onclick="closeLyrics()">✕ Close</button>
+      <div class="lyrics-modal-num" id="modalNum"></div>
+      <div class="lyrics-modal-title" id="modalTitle"></div>
+      <span class="lyrics-modal-feat" id="modalFeat"></span>
+      <div class="lyrics-modal-divider"></div>
+      <div class="lyrics-modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
   <!-- MEDIA -->
   <section id="media">
@@ -1125,8 +1174,8 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="media-grid reveal">
-      <div class="media-item">
+    <div class="media-grid reveal" style="grid-template-columns:1fr 1fr; grid-template-rows:auto;">
+      <div class="media-item" style="grid-column:span 1;">
         <div style="position:relative; width:100%; padding-bottom:56.25%; background:#000;">
           <iframe
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
@@ -1139,37 +1188,14 @@
         </div>
         <div class="media-caption">CLAZZ@CT — Official Video</div>
       </div>
-      <div class="media-item">
-        <div class="media-placeholder">
+      <div class="media-item" style="grid-column:span 1;">
+        <div class="media-placeholder" style="padding-bottom:56.25%;">
           <div class="media-placeholder-label">
             <div class="play-icon"></div>
+            <span style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:12px;">Coming Soon</span>
           </div>
         </div>
-        <div class="media-caption">No Filter — Live Session</div>
-      </div>
-      <div class="media-item">
-        <div class="media-placeholder">
-          <div class="media-placeholder-label">
-            <div class="play-icon"></div>
-          </div>
-        </div>
-        <div class="media-caption">Wordplay — Studio Cuts</div>
-      </div>
-      <div class="media-item">
-        <div class="media-placeholder">
-          <div class="media-placeholder-label">
-            <div class="play-icon"></div>
-          </div>
-        </div>
-        <div class="media-caption">Photoshoot Behind the Scenes</div>
-      </div>
-      <div class="media-item">
-        <div class="media-placeholder">
-          <div class="media-placeholder-label">
-            <div class="play-icon"></div>
-          </div>
-        </div>
-        <div class="media-caption">Real Life — Freestyle</div>
+        <div class="media-caption">Am I Trippin? — Official Video</div>
       </div>
     </div>
   </section>
@@ -1281,10 +1307,56 @@
 
   <script>
 
-    function toggleLyrics(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    const lyricsData = [
+      {
+        num: "01", title: "Just Gotta Slow Down &amp; Think", feat: "", tag: "Single",
+        body: `<p>Yeah…</p><p>Late nights alone really teach you things.<br>Sometimes the hardest relationship to fix…<br>Is the one you got with yourself.</p><p>I spent too much time lookin' for validation<br>Tryna fill empty spaces through conversation<br>Smilin' outside while my soul felt tired<br>Buildin' everybody else while I slowly expired<br>And nobody noticed.</p><p>Cause I got good at wearin' masks<br>Laughin' through pain while avoidin' my past<br>Every scar turned into hidden frustration<br>Every disappointment shaped my hesitation</p><p>I used to think love came from somebody else<br>Till I sat in silence forced to face myself<br>And honestly?<br>I ain't even know me deeply<br>Too busy seekin' approval from people who couldn't keep me</p><p><em>So now I'm learnin' to love me<br>Even on the nights it get ugly<br>Even when the mirror show pain beneath<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p><p>See self-love deeper than confidence quotes<br>Deeper than pretendin' everything growth<br>Sometimes self-love look like cuttin' people off<br>Sometimes it's cryin' while rebuildin' from loss<br>Sometimes it's restin' when your spirit exhausted<br>Sometimes it's realizin' trauma distorted<br>How you saw yourself all these years<br>Now you tryna separate your worth from your fears</p><p>And that process painful.<br>Cause healing force you to sit with yourself<br>No distractions, no lies, no help<br>Just truth echoing loud through the room<br>While you confront every wound you consumed</p><p>But I'm tired of punishin' myself mentally<br>Tired of speakin' doubt over my energy<br>Tired of feelin' unworthy of peace<br>When I survived things that could've buried me deep</p><p>Maybe I deserved patience too.<br>Maybe I deserved understanding too.<br>Maybe…<br>I needed my own love the most.</p><p>So now I protect my peace different<br>Move slower, think deeper, love wiser with it<br>No more chasin' people who drain my soul<br>No more abandonin' myself for control<br>I learned boundaries holy<br>I learned solitude can restore me<br>I learned growth ain't loud all the time<br>Sometimes it's quiet healing inside your mind</p><p>And yeah, I still got nights I overthink<br>Still got moments I feel incomplete<br>But now I catch myself before I fall apart<br>Cause I finally started listenin' to my heart</p><p>And maybe that's what self-love really is<br>Not perfection, just acceptance within<br>Knowin' you flawed but still worthy of care<br>Still worthy of breath, purpose, and prayer</p><p><em>I'm still learnin' to love me<br>Even through the chaos inside me<br>Even when life feel heavy on me<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p><p>For the first time in a long time…<br>I looked in the mirror…<br>And didn't hate who was lookin' back at me.</p>`
+      },
+      {
+        num: "02", title: "Accountability for Sale", feat: "feat. L.E. Vayshun &amp; Blasha", tag: "Single",
+        body: `<p>Everybody got a reason.<br>Everybody got an explanation.<br>Everybody got a diagnosis.<br>Everybody got somebody else to blame.<br>But who responsible?</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>I see a world addicted to explanations<br>Every action need a public justification<br>Every bad choice need a softer definition<br>Till consequences disappear from the discussion</p><p>Now don't get it twisted, pain is real<br>Mental health struggles absolutely real<br>People fight battles nobody can see<br>And compassion should exist naturally</p><p>But somewhere we confused understanding with exemption<br>Like accountability became offensive to mention<br>Sometimes trauma involved, sometimes life got rough<br>And sometimes somebody simply made a bad choice, enough</p><p>Cause every mistake ain't a condition to diagnose<br>Every weakness ain't a disorder to disclose<br>Sometimes growth start where excuses stop<br>And character built when ownership adopted</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>Words keep changin', definitions get stretched<br>Till language itself become a political chess set<br>One group redefine terms to gain influence<br>Another group respond and create more confusion<br>Now everybody fightin' over vocabulary<br>While everyday people wonder what's necessary</p><p>And I noticed somethin' strange in the culture lately<br>Everybody demand respect immediately<br>While offerin' none when disagreement appear<br>Then call conversation violence if they hear what they fear<br>Cancel one side, protect another side<br>Apply standards different dependin' on the tribe<br>Rights used against rights in a constant collision<br>Everybody claim justice from their position</p><p>What happens when every side claims moral authority?<br>What happens when nobody questions themselves?<br>What happens when power wears the mask of virtue?</p><p>Cause conflict sell.<br>Fear sell.<br>Division sell.<br>Attention sell.<br><br>But discipline don't trend.<br>Humility don't trend.<br>Self-reflection don't trend.<br>Personal responsibility don't trend.<br><br>Yet that's where real growth live.</p><p>And maybe society stronger when we balance both<br>Compassion for pain and accountability for growth<br>Understanding circumstance without removin' agency<br>Recognizin' influence without denyin' responsibility</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>A healthy society needs compassion.<br>A healthy society needs freedom.<br>A healthy society needs responsibility too.<br>Take away any one of them...<br>And eventually the whole structure starts to lean.</p>`
+      },
+      {
+        num: "03", title: "Learn To Love Me", feat: "", tag: "Single",
+        body: `<p style="opacity:0.4; font-style:italic;">Lyrics coming soon…</p>`
+      },
+      {
+        num: "04", title: "It's Bigger Than Me", feat: "", tag: "Single",
+        body: `<p>Yeah…<br>This ain't just about me.<br>Too many people suffered…<br>Too many people sacrificed…<br>Too many people carried pain on they back<br>Just so I could stand here today.<br>So nah…<br>I can't quit.<br>It's bigger than me.</p><p>I think about hands with scars on 'em<br>People workin' long shifts with the world on 'em<br>People who got overlooked and disrespected<br>Still woke up every day and stayed invested<br>Some survived wars, some survived chains<br>Some survived poverty and generational pain<br>Some lost dreams just to feed they kids<br>Sacrificed they own life for what I could live</p><p>And I feel that pressure in my spirit<br>Every time I complain, I can hear it<br>Like "boy, you better stand tall and move"<br>Cause too much blood got spilled for you to lose</p><p>So when life hit hard I adjust my vision<br>I refuse to drown inside self-pity prisons<br>Nah, the past ain't chains, it's perspective<br>Pain can teach if you learn the lesson</p><p><em>It's bigger than me<br>Every sacrifice still livin' through me<br>Every struggle built the man I'm tryna be<br>So I move with purpose every step I breathe<br>It's bigger than me<br>No system, no hate gon' bury me<br>No barrier strong enough to stop destiny<br>Cause too many people prayed for me to succeed</em></p><p>I ain't weaponizin' history for sympathy<br>I'm usin' it to understand responsibility<br>Cause some people stay trapped in yesterday<br>While others take wisdom and create a way<br>See the past always gon' be the past<br>Can't build tomorrow if you only live backwards<br>But you better respect what came before you<br>Cause roots matter if the tree gon' grow too</p><p>I know young people angry, I understand why<br>But rage alone won't elevate your life<br>You gotta build, think, create, move smarter<br>Turn pain into fuel and push harder<br>Cause my ancestors ain't survive for excuses<br>They endured conditions that would mentally ruin<br>Most people today if they saw that pressure<br>Would fold in a week from the weight and effort</p><p>Yet they kept movin'.<br>Still had faith through impossible seasons<br>Still had families, dreams, and reasons<br>That's why I can't let temporary setbacks break me<br>Weak mentality could never remake me</p><p>"Keep goin'…"<br>"Stand tall…"<br>"Don't waste the sacrifice…"</p><p>I'm young but I finally understand<br>Life bigger than likes and temporary plans<br>Bigger than trends, bigger than online noise<br>Bigger than ego disguised as prideful voice<br>I carry names I may never know<br>People whose bloodline made my growth possible<br>And one day somebody gon' look at me<br>The same way I look at history</p><p>That hit different.<br>Cause now every move got deeper meaning<br>Every late night got stronger reason<br>I don't just win for me anymore<br>I win for every person who couldn't before</p><p>No corruption can poison my direction<br>No attitude can weaken my progression<br>No obstacle made by man gon' stop me<br>When generations sacrificed to build me properly</p><p>The past ain't a place to live.<br>It's a place to learn from.<br>Respect it.<br>Study it.<br>Carry it with honor.<br>Then move forward.</p><p>Because it's bigger than me.</p>`
+      },
+      {
+        num: "05", title: "Why Not Listen to This?", feat: "", tag: "Single",
+        body: `<p>Yeah…<br>Turn the volume down for a second.<br>I got a question.<br>If music can influence destruction…<br>Why can't it influence construction?</p><p><em>Why not listen to this?<br>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>They market confusion and call it expression<br>Market self-destruction and call it progression<br>Market addiction, division, and rage<br>Then wonder why society trapped in a cage</p><p>What happened to music that helped people believe?<br>What happened to records that built aspiration?<br>Songs that inspired entire generations?<br>Songs that made fathers wanna be better men?<br>Songs that made people wanna build again?</p><p>Now every playlist flooded with excess<br>More greed, more violence, more reckless<br>And the people profitin' from it ain't livin' that life<br>They safe in the hills while communities fight</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>It's culture merchants and attention dealers<br>People who monetize wounds they never had to live with<br>They study demographics, insecurities, vulnerabilities<br>Then package destruction in attractive forms<br>Till dysfunction become socially normal</p><p>What if the most rebellious thing today…<br>Is discipline?<br>What if the strongest message…<br>Is responsibility?<br>What if growth became louder than chaos?</p><p>Cause music shape culture<br>Culture shape behavior<br>Behavior shape families<br>Families shape neighbors<br>Neighbors shape communities<br>Communities shape nations<br>Everything connected through generations</p><p>Nah.<br>I believe music can still elevate<br>Still educate<br>Still motivate<br>Still inspire people to become somethin' greater<br>Instead of merely becoming a customer later</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?</em></p><p>If music can influence destruction…<br>Then music can influence growth.<br>If words can become weapons…<br>Then words can become tools.<br>And if people are willing to listen…<br>Maybe we can build something worth hearing.</p>`
+      }
+    ];
+
+    function openLyrics(idx) {
+      const d = lyricsData[idx];
+      if (!d.body || d.body.includes('coming soon')) {
+        document.getElementById('modalNum').textContent = d.num;
+        document.getElementById('modalTitle').innerHTML = d.title;
+        document.getElementById('modalFeat').textContent = d.feat;
+        document.getElementById('modalBody').innerHTML = d.body;
+      } else {
+        document.getElementById('modalNum').textContent = d.num;
+        document.getElementById('modalTitle').innerHTML = d.title;
+        document.getElementById('modalFeat').textContent = d.feat;
+        document.getElementById('modalBody').innerHTML = d.body;
+      }
+      document.getElementById('lyricsModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeLyrics() {
+      document.getElementById('lyricsModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeLyricsModal(e) {
+      if (e.target === document.getElementById('lyricsModal')) closeLyrics();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLyrics(); });
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
