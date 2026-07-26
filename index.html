@@ -239,6 +239,7 @@
     /* ─── SECTION SHARED ─── */
     section {
       padding: 100px 48px;
+      scroll-margin-top: 80px;
     }
 
     .section-label {
@@ -600,13 +601,15 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       cursor: pointer;
       background: none;
       border: none;
       padding: 4px;
       z-index: 200;
+      flex-shrink: 0;
+      margin-left: 16px;
     }
 
     .nav-hamburger span {
@@ -1069,9 +1072,6 @@
       <li><a href="#shop">Shop</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
-      <span></span><span></span><span></span>
-    </button>
     <div class="nav-social">
       <!-- Spotify -->
       <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener" aria-label="Spotify">
@@ -1102,6 +1102,9 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.699-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.076-1.051-.872-1.238-1.276-1.814-2.106-1.734 1.768-2.962 2.296-5.209 2.296-2.66 0-4.731-1.641-4.731-4.927 0-2.566 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.097v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.818-1.774-.818-1.206 0-2.282.618-2.545 1.9-.054.285-.261.567-.549.582l-3.061-.33c-.259-.056-.548-.266-.472-.66.703-3.71 4.056-4.826 7.059-4.826 1.537 0 3.546.41 4.758 1.574 1.538 1.436 1.392 3.352 1.392 5.438v4.927c0 1.484.616 2.134 1.192 2.935.204.285.249.628-.01.839-.647.541-1.794 1.537-2.419 2.065zm3.11 1.179c-5.992 4.285-14.683 1.824-19.222-3.368-.234-.264.024-.516.27-.323 4.929 3.311 11.031 4.291 16.427 2.33.333-.12.616.218.525.461zm1.433-1.648c-.316-.402-2.083-.189-2.879-.096-.243.03-.28-.182-.062-.334 1.409-.99 3.726-.705 3.996-.373.273.335-.072 2.65-1.393 3.754-.202.17-.396.08-.307-.144.298-.741.966-2.401.645-2.807z"/></svg>
       </a>
     </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- MOBILE NAV -->
@@ -1501,6 +1504,10 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    // Prevent browser scroll restoration
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => window.scrollTo(0, 0));
 
     // Hamburger menu
     function toggleMobileNav() {
