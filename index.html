@@ -864,11 +864,20 @@
       width: 100%;
       aspect-ratio: 1;
       background: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      opacity: 0.12;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .merch-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .merch-card:hover .merch-image img {
+      transform: scale(1.04);
     }
 
     .merch-info {
@@ -1353,46 +1362,13 @@
   </section>
 
   <!-- SHOP -->
-  <section id="shop">
-    <div class="reveal">
-      <p class="section-label">Official Merch</p>
-      <h2 class="section-title">Shop</h2>
-      <div class="section-divider"></div>
-    </div>
-
-    <div class="shop-grid reveal">
-      <div class="merch-card">
-        <div class="merch-image">👕</div>
-        <div class="merch-info">
-          <div class="merch-name">CLAZZ@CT Logo Tee</div>
-          <div class="merch-price">$34.99</div>
-        </div>
-      </div>
-      <div class="merch-card">
-        <div class="merch-image">🧢</div>
-        <div class="merch-info">
-          <div class="merch-name">No Filter Cap</div>
-          <div class="merch-price">$29.99</div>
-        </div>
-      </div>
-      <div class="merch-card">
-        <div class="merch-image">🧥</div>
-        <div class="merch-info">
-          <div class="merch-name">Texture Hoodie</div>
-          <div class="merch-price">$64.99</div>
-        </div>
-      </div>
-      <div class="merch-card">
-        <div class="merch-image">📀</div>
-        <div class="merch-info">
-          <div class="merch-name">Limited Edition Bundle</div>
-          <div class="merch-price">$89.99</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:48px;" class="reveal">
-      <a href="#" class="btn btn-outline">View Full Shop</a>
+  <section id="shop" style="padding:0; position:relative; overflow:hidden; min-height:520px; display:flex; align-items:center; justify-content:center;">
+    <div style="position:absolute; inset:0; background:url('img/hero.png') center center / cover no-repeat; filter:grayscale(100%) brightness(0.35);"></div>
+    <div style="position:relative; z-index:2; text-align:center; padding:100px 48px;">
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:20px;">Official Merch</p>
+      <h2 style="font-family:'Bebas Neue','Barlow Condensed',sans-serif; font-size:clamp(56px,10vw,120px); line-height:0.95; letter-spacing:0.02em; text-transform:uppercase; color:#fff; margin-bottom:24px;">Shop</h2>
+      <div style="width:40px; height:1px; background:rgba(255,255,255,0.4); margin:0 auto 32px;"></div>
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:clamp(14px,2vw,20px); letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Coming Soon</p>
     </div>
   </section>
 
