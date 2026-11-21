@@ -3,1117 +3,1556 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K.Wisdom — Official Site</title>
-  <meta name="description" content="Official website of K.Wisdom. The new album BOUNDARIES — now available on Purpose Wave Entertainment." />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>CLAZZ@CT – Clever Lyrics. Real Life. No Filter.</title>
+  <link rel="icon" type="image/png" href="img/pwr_favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ============================================================
-       RESET & TOKENS — "The Study"
-    ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --walnut-950: #0d0705;
-      --walnut-900: #140b07;
-      --walnut-800: #1c100a;
-      --walnut-700: #27160d;
-      --mahogany:   #3a1c10;
-      --oxblood:    #4e1f13;
-      --brass:      #c9a24a;
-      --brass-lt:   #ecd08a;
-      --brass-dk:   #7d5f25;
-      --parchment:  #efe3c8;
-      --cream:      #f7eedb;
-      --ink:        #2a1a10;
-      --text:       #e8dac0;
-      --muted:      #ad977a;
-      --nav-h:      84px;
-
-      --gilt: linear-gradient(135deg, #7d5f25 0%, #e9cb83 28%, #b38a38 48%, #f3da98 68%, #8d6b2b 100%);
-      --wood:
-        repeating-linear-gradient(92deg, rgba(0,0,0,.0) 0 7px, rgba(0,0,0,.07) 7px 9px, rgba(255,190,120,.025) 9px 15px),
-        linear-gradient(180deg, #2b170d 0%, #1f110a 100%);
-      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      --white: #ffffff;
+      --black: #000000;
+      --gray: #888888;
+      --light-gray: #cccccc;
+      --dark-gray: #111111;
     }
 
     html { scroll-behavior: smooth; }
 
-    body {
-      background: var(--walnut-900);
-      color: var(--text);
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 18px;
+    html, body {
+      max-width: 100%;
       overflow-x: hidden;
     }
-    /* quiet, static paper/leather grain */
-    body::after {
-      content: ''; position: fixed; inset: 0;
-      background-image: var(--grain);
-      opacity: .05; pointer-events: none; z-index: 9999;
-      mix-blend-mode: overlay;
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
-    ::selection { background: var(--brass); color: var(--walnut-950); }
-
-    .gold-text {
-      background: var(--gilt);
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent;
-    }
-
-    /* ============================================================
-       NAV
-    ============================================================ */
+    /* ─── NAVIGATION ─── */
     nav {
-      position: fixed; top: 0; left: 0; width: 100%;
-      height: var(--nav-h);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px;
-      z-index: 1000;
-      transition: background .4s ease, border-color .4s ease, height .4s ease;
-      border-bottom: 1px solid transparent;
-    }
-    nav.solid {
-      background: rgba(20,11,7,.96);
-      border-bottom-color: rgba(201,162,74,.35);
-      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%);
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
-    .logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-    .seal {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--gilt);
-      display: grid; place-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,240,200,.5);
-      position: relative;
+    .nav-logo {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
     }
-    .seal::before {
-      content: ''; position: absolute; inset: 4px; border-radius: 50%;
-      border: 1px solid rgba(60,40,10,.55);
-    }
-    .seal span {
-      font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px;
-      letter-spacing: 1px; color: #2a1a08;
-    }
-    .logo-word {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600; font-size: 26px; letter-spacing: 1.5px;
-      color: var(--cream);
-    }
-    .logo-word em { font-style: italic; color: var(--brass-lt); }
 
-    .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
     .nav-links a {
-      font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
-      letter-spacing: 3.5px; text-transform: uppercase;
-      color: rgba(247,238,219,.78);
-      padding: 6px 0; position: relative;
-      transition: color .25s;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
-    .nav-links a::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-      background: var(--gilt); transform: scaleX(0); transform-origin: center;
-      transition: transform .3s ease;
+
+    .nav-links a:hover { opacity: 0.6; }
+
+    .nav-social {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
-    .nav-links a.active, .nav-links a:hover { color: var(--brass-lt); }
-    .nav-links a.active::after, .nav-links a:hover::after { transform: scaleX(1); }
 
-    .nav-right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
-    .nav-socials { display: flex; align-items: center; gap: 16px; }
-    .nav-socials a { color: rgba(236,208,138,.75); display: flex; transition: color .2s; }
-    .nav-socials a:hover { color: var(--brass-lt); }
-    .nav-socials svg { width: 16px; height: 16px; fill: currentColor; }
+    .nav-social a {
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+    }
 
-    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 26px; height: 1.5px; background: var(--brass-lt); }
+    .nav-social a:hover { opacity: 1; }
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    #home {
-      position: relative; width: 100%;
-      height: 100vh; min-height: 720px;
+    .nav-social svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
       overflow: hidden;
-      display: flex; align-items: flex-end;
-      background: var(--walnut-950);
+      display: flex;
+      align-items: center;
     }
+
     .hero-bg {
-      position: absolute; inset: 0;
-      background: url('kwisdom_hero.jpg') 50% center / cover no-repeat;
-      transform: scale(1.04);
-      animation: settle 14s ease-out forwards;
-      z-index: 0;
+      position: absolute;
+      inset: 0;
+      background: url('img/hero.png') 70% center / cover no-repeat;
+      filter: grayscale(100%);
     }
-    @keyframes settle { to { transform: scale(1); } }
 
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background:
-        radial-gradient(ellipse 60% 70% at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 70%, rgba(0,0,0,.55) 100%),
-        linear-gradient(90deg, rgba(13,7,5,.9) 0%, rgba(13,7,5,.55) 30%, rgba(13,7,5,0) 55%),
-        linear-gradient(to bottom, rgba(13,7,5,.6) 0%, rgba(13,7,5,0) 20%, rgba(13,7,5,0) 55%, rgba(13,7,5,.95) 100%);
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-position: 80% center;
+      }
     }
-    /* banker's-lamp glow */
-    .hero-glow {
-      position: absolute; inset: 0; z-index: 2; pointer-events: none;
-      background: radial-gradient(circle at 4% 62%, rgba(255,180,90,.28), rgba(255,180,90,0) 32%);
-      mix-blend-mode: screen;
-      animation: lamp 6s ease-in-out infinite alternate;
+
+    /* subtle script overlay — matches the mockup's handwriting texture */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.15) 100%);
     }
-    @keyframes lamp { from { opacity: .75; } to { opacity: 1; } }
 
-    .hero-bottom { position: relative; z-index: 3; width: 100%; padding: 0 72px 80px; }
-
-    .plaque {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 4px; text-transform: uppercase;
-      color: #2a1a08;
-      background: var(--gilt);
-      padding: 9px 18px 8px;
-      box-shadow: 0 6px 16px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,240,200,.55), inset 0 0 0 3px rgba(90,60,15,.35);
-      margin-bottom: 26px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 48px;
+      max-width: 720px;
     }
-    .plaque i { width: 5px; height: 5px; background: #2a1a08; transform: rotate(45deg); display: inline-block; }
 
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
+    .hero-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(72px, 12vw, 160px);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--white);
+      margin: 24px 0;
+    }
+
+    .hero-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 600;
-      font-size: clamp(72px, 11vw, 176px);
-      line-height: .86;
-      letter-spacing: -1px;
-      margin-bottom: 26px;
-      text-shadow: 0 4px 30px rgba(0,0,0,.4);
+      font-size: clamp(14px, 1.8vw, 20px);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 8px;
     }
-    .hero-name span { display: block; }
-    .hero-name .k { color: var(--cream); }
-    .hero-name .w { font-style: italic; padding-left: .35em; }
 
-    .hero-tag {
-      display: flex; align-items: center; gap: 18px;
-      font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(20px, 1.8vw, 26px);
-      color: var(--text);
-      margin-bottom: 38px;
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.4vw, 16px);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 40px;
     }
-    .hero-tag::before { content: ''; width: 70px; height: 1px; background: var(--gilt); flex-shrink: 0; }
-    .hero-tag b { font-style: normal; font-family: 'Cinzel', serif; font-weight: 600; font-size: .78em; letter-spacing: 3px; color: var(--brass-lt); }
 
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
     .btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
       display: inline-block;
-      padding: 17px 38px 16px;
-      background: var(--gilt);
-      color: #24160a;
-      font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
-      letter-spacing: 4px; text-transform: uppercase;
-      border: none; cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,240,200,.5);
-      transition: transform .25s, box-shadow .25s, filter .25s;
+      cursor: pointer;
+      transition: all 0.25s;
     }
-    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 14px 30px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,240,200,.7); }
-    .btn.ghost {
-      background: transparent; color: var(--brass-lt);
-      box-shadow: inset 0 0 0 1px rgba(201,162,74,.75);
-    }
-    .btn.ghost:hover { background: rgba(201,162,74,.12); }
 
-    /* ============================================================
-       BRASS RAIL (ticker)
-    ============================================================ */
-    .ticker {
-      position: relative; z-index: 5;
-      background: linear-gradient(180deg, #3d1e11, #2b150c);
-      overflow: hidden; white-space: nowrap;
-      padding: 16px 0 15px;
-      border-top: 1px solid var(--brass-dk);
-      border-bottom: 1px solid var(--brass-dk);
-      box-shadow: inset 0 3px 0 -1px rgba(236,208,138,.35), inset 0 -3px 0 -1px rgba(236,208,138,.35);
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
     }
-    .ticker-track {
-      display: inline-block;
-      font-family: 'Cinzel', serif; font-size: 15px; font-weight: 600;
-      letter-spacing: 6px; text-transform: uppercase;
-      color: var(--brass-lt);
-      animation: marquee 48s linear infinite;
-    }
-    .ticker-track span { margin: 0 26px; }
-    .ticker-track .x { color: var(--brass); font-size: 10px; letter-spacing: 0; vertical-align: 2px; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ============================================================
-       SHARED
-    ============================================================ */
-    section { position: relative; }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 48px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scroll-indicator span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.4);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section {
+      padding: 100px 48px;
+      scroll-margin-top: 80px;
+    }
 
     .section-label {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
-      letter-spacing: 5px; text-transform: uppercase;
-      color: var(--brass);
-      margin-bottom: 18px;
-    }
-    .section-label::before { content: ''; width: 34px; height: 1px; background: var(--brass); }
-
-    .section-heading {
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: clamp(44px, 5.6vw, 80px);
-      line-height: .98; letter-spacing: .2px;
-      color: var(--cream);
-    }
-    .section-heading em { font-style: italic; color: var(--brass-lt); }
-
-    /* ornamental divider */
-    .rule {
-      position: relative; width: 220px; height: 14px; margin: 26px 0 30px;
-    }
-    .rule::before {
-      content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
-      background: linear-gradient(90deg, var(--brass) 0%, var(--brass) 42%, transparent 42%, transparent 58%, var(--brass) 58%);
-      opacity: .8;
-    }
-    .rule::after {
-      content: ''; position: absolute; left: 50%; top: 50%;
-      width: 9px; height: 9px; transform: translate(-50%,-50%) rotate(45deg);
-      border: 1px solid var(--brass);
-    }
-
-    /* gilt picture frame */
-    .frame {
-      position: relative;
-      padding: 16px;
-      background: var(--gilt);
-      box-shadow:
-        0 30px 60px rgba(0,0,0,.65),
-        inset 0 0 0 1px rgba(255,240,200,.6),
-        inset 0 0 0 5px rgba(110,80,25,.45),
-        inset 0 0 0 6px rgba(255,235,180,.35);
-    }
-    .frame .mat {
-      position: relative;
-      background: #120a06;
-      padding: 12px;
-      box-shadow: inset 0 0 18px rgba(0,0,0,.9), inset 0 0 0 1px rgba(0,0,0,.6);
-    }
-    .nameplate {
-      display: inline-block;
-      margin-top: 22px;
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: #2a1a08;
-      background: var(--gilt);
-      padding: 7px 16px 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,240,200,.5);
-    }
-
-    /* raised wood panel background */
-    .paneled { background: var(--wood); }
-    .paneled::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0) 12%, rgba(0,0,0,0) 88%, rgba(0,0,0,.35)),
-        radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255,175,90,.08), transparent 70%);
-    }
-
-    /* ============================================================
-       MUSIC
-    ============================================================ */
-    #music { background: var(--walnut-800); padding: 130px 80px; }
-    #music::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 45% 55% at 25% 35%, rgba(255,170,80,.08), transparent 70%);
-    }
-
-    .music-inner {
-      position: relative;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 90px; align-items: center;
-      max-width: 1200px; margin: 0 auto;
-    }
-
-    .album-art-wrap { position: relative; text-align: center; }
-    .cover {
-      position: relative; aspect-ratio: 1; overflow: hidden;
-      background: var(--walnut-950);
-    }
-    .cover-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .cover-img {
-      position: absolute; inset: 0;
-      background: url('kwisdom_hero.jpg') 50% 18% / 240% auto no-repeat;
-      filter: contrast(1.08) saturate(.9);
-    }
-    .cover-shade {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 35%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%),
-        linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(13,7,5,.92) 100%);
-    }
-    .cover-artist {
-      position: absolute; top: 22px; left: 0; right: 0;
-      font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
-      letter-spacing: 8px; color: var(--cream); text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    }
-    .cover-title {
-      position: absolute; left: 0; right: 0; bottom: 22px;
-      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
-      font-size: clamp(40px, 5vw, 70px); line-height: 1;
-    }
-    .cover-sticker {
-      position: absolute; top: -22px; right: -22px; z-index: 4;
-      width: 92px; height: 92px; border-radius: 50%;
-      background: var(--gilt);
-      display: grid; place-items: center; text-align: center;
-      font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 2px; line-height: 1.5; color: #2a1a08;
-      transform: rotate(10deg);
-      box-shadow: 0 10px 24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,240,200,.6), inset 0 0 0 6px rgba(110,80,25,.3);
-    }
-
-    .release-tag {
-      display: inline-block;
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--brass-lt);
-      border-top: 1px solid rgba(201,162,74,.5);
-      border-bottom: 1px solid rgba(201,162,74,.5);
-      padding: 7px 4px;
-      margin-bottom: 26px;
-    }
-    .music-info p {
-      font-size: 19px; line-height: 1.75;
-      color: rgba(232,218,192,.82);
-      margin-bottom: 38px; max-width: 480px;
-    }
-    .music-info p em { color: var(--brass-lt); }
-
-    .stream-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .stream-pill {
-      display: flex; align-items: center; gap: 10px;
-      padding: 12px 20px;
-      box-shadow: inset 0 0 0 1px rgba(201,162,74,.55);
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--cream);
-      transition: background .25s, color .25s;
-    }
-    .stream-pill svg { width: 15px; height: 15px; fill: var(--brass-lt); transition: fill .25s; }
-    .stream-pill:hover { background: var(--gilt); color: #24160a; }
-    .stream-pill:hover svg { fill: #24160a; }
-
-    /* Discography — the shelf */
-    .disco-wrap {
-      position: relative;
-      max-width: 1200px; margin: 120px auto 0;
-      padding-top: 64px;
-      border-top: 1px solid rgba(201,162,74,.22);
-    }
-    .disco-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; gap: 20px; }
-    .disco-head h3 {
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: clamp(34px, 3.8vw, 52px); line-height: 1;
-      color: var(--cream);
-    }
-    .disco-head h3 em { font-style: italic; color: var(--brass-lt); }
-    .disco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-    .disco-card { cursor: pointer; }
-    .disco-card .frame { padding: 10px; }
-    .disco-card .frame .mat { padding: 8px; }
-    .disco-art { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--walnut-950); }
-    .disco-art .bg {
-      position: absolute; inset: 0;
-      background: url('boundaries_cover.jpg') no-repeat;
-      filter: saturate(.85) contrast(1.05) brightness(.82);
-      transition: transform .7s ease, filter .7s ease;
-    }
-    .disco-card:nth-child(1) .bg { background-position: 19% 13%; background-size: 220% auto; }
-    .disco-card:nth-child(2) .bg { background-position: 100% 52%; background-size: 170% auto; }
-    .disco-card:nth-child(3) .bg { background-position: 30% 100%; background-size: 230% auto; }
-    .disco-card:hover .bg { transform: scale(1.05); }
-    .disco-art .label {
-      position: absolute; left: 0; right: 0; bottom: 16px; text-align: center;
-      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
-      font-size: 34px; line-height: 1; color: var(--cream);
-      text-shadow: 0 2px 18px rgba(0,0,0,.9);
-    }
-    .disco-art .play {
-      position: absolute; top: 50%; left: 50%;
-      width: 64px; height: 64px; border-radius: 50%;
-      transform: translate(-50%,-50%) scale(.8);
-      background: var(--gilt); color: #24160a;
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: all .3s;
-      box-shadow: 0 8px 20px rgba(0,0,0,.6);
-    }
-    .disco-art .play svg { width: 20px; height: 20px; margin-left: 3px; }
-    .disco-art .play { display: none; }
-    .soon {
-      position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
-      font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase; white-space: nowrap;
-      color: #2a1a08; background: var(--gilt);
-      padding: 7px 14px 6px;
-      box-shadow: 0 6px 14px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,240,200,.5);
-    }
-    .disco-card { cursor: default; }
-    .shelf {
-      height: 16px; margin: 0 -14px;
-      background: linear-gradient(180deg, #5a3320 0%, #3a1f12 55%, #24120a 100%);
-      box-shadow: 0 14px 22px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,200,150,.18);
-    }
-    .disco-info { padding: 18px 2px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-    .disco-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 22px; color: var(--cream); }
-    .disco-meta { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
-
-    /* ============================================================
-       MANIFESTO — tooled leather
-    ============================================================ */
-    #manifesto {
-      background:
-        radial-gradient(ellipse 70% 80% at 50% 50%, #5a2516 0%, #3d170d 60%, #2a0f08 100%);
-      padding: 110px 80px;
-      text-align: center;
-    }
-    #manifesto::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image: var(--grain); opacity: .22; mix-blend-mode: multiply;
-    }
-    .tooled {
-      position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto;
-      padding: 80px 60px 70px;
-      border: 1px solid rgba(201,162,74,.65);
-      outline: 1px solid rgba(201,162,74,.35);
-      outline-offset: 8px;
-    }
-    .tooled::before, .tooled::after {
-      content: '◆'; position: absolute; left: 50%; transform: translateX(-50%);
-      color: var(--brass); font-size: 12px; background: #4a1c10; padding: 0 14px;
-    }
-    .tooled::before { top: -9px; }
-    .tooled::after { bottom: -9px; }
-    .manifesto-line {
-      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
-      font-size: clamp(38px, 5.4vw, 80px);
-      line-height: 1.12;
-      color: var(--cream);
-    }
-    .manifesto-line .hl { font-weight: 700; }
-    .manifesto-sig {
-      margin-top: 36px;
-      font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600;
-      letter-spacing: 6px; text-transform: uppercase; color: var(--brass-lt);
-    }
-
-    /* ============================================================
-       ABOUT
-    ============================================================ */
-    #about { padding: 130px 80px; }
-
-    .about-inner {
-      position: relative;
-      display: grid; grid-template-columns: 1fr 440px;
-      gap: 90px; align-items: center;
-      max-width: 1200px; margin: 0 auto;
-    }
-    .about-text p { font-size: 19px; line-height: 1.8; color: rgba(232,218,192,.84); margin-bottom: 22px; }
-
-    .about-quote {
-      margin: 40px 0; padding: 30px 34px;
-      background: linear-gradient(180deg, rgba(13,7,5,.55), rgba(13,7,5,.35));
-      border-left: 2px solid var(--brass);
-      position: relative;
-    }
-    .about-quote::before {
-      content: '“'; position: absolute; top: -18px; left: 18px;
-      font-family: 'Cormorant Garamond', serif; font-size: 96px; line-height: 1;
-      color: var(--brass); opacity: .55;
-    }
-    .about-quote blockquote {
-      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
-      font-size: clamp(24px, 2.2vw, 31px); line-height: 1.35; color: var(--cream);
-    }
-
-    .about-facts { margin-top: 40px; }
-    .about-fact {
-      display: flex; align-items: baseline; gap: 12px;
-      padding: 12px 0;
-      font-size: 17px;
-    }
-    .about-fact-key {
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--brass);
-      white-space: nowrap;
-    }
-    .about-fact::after { content: none; }
-    .leader { flex: 1; border-bottom: 1px dotted rgba(201,162,74,.4); transform: translateY(-4px); }
-    .about-fact-val { color: var(--cream); text-align: right; font-style: italic; }
-
-    .about-portrait { position: relative; text-align: center; }
-    .about-portrait .shot {
-      height: 560px;
-      background: url('kwisdom_hero.jpg') 50% 6% / auto 175% no-repeat;
-    }
-
-    /* ============================================================
-       CONTACT — correspondence
-    ============================================================ */
-    #contact { background: var(--walnut-800); padding: 130px 80px; }
-
-    .contact-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 90px; max-width: 1200px; margin: 0 auto; align-items: start;
-    }
-    .contact-info p { font-size: 19px; line-height: 1.75; color: rgba(232,218,192,.82); margin: 0 0 38px; }
-
-    .contact-details {
-      display: flex; flex-direction: column; gap: 22px;
-      padding: 30px 32px;
-      border: 1px solid rgba(201,162,74,.35);
-      background: rgba(13,7,5,.35);
-    }
-    .contact-detail-label {
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--brass);
-      margin-bottom: 4px;
-    }
-    .contact-detail-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); }
-
-    .contact-form {
-      position: relative;
-      display: flex; flex-direction: column; gap: 20px;
-      background: linear-gradient(180deg, #f6edd9, #ecdfc2);
-      color: var(--ink);
-      padding: 44px 42px 40px;
-      box-shadow: 0 30px 60px rgba(0,0,0,.6);
-    }
-    .contact-form::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image: var(--grain); opacity: .18; mix-blend-mode: multiply;
-    }
-    .letterhead {
-      display: flex; align-items: center; gap: 14px;
-      padding-bottom: 18px; margin-bottom: 6px;
-      border-bottom: 1px solid rgba(125,95,37,.45);
-    }
-    .letterhead .seal { width: 40px; height: 40px; }
-    .letterhead .seal span { font-size: 12px; }
-    .letterhead-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 21px; color: var(--ink); }
-    .letterhead-text small { display: block; font-family: 'Cinzel', serif; font-style: normal; font-size: 10px; letter-spacing: 3px; color: var(--brass-dk); margin-top: 2px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 1; }
-    .form-label {
-      font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--brass-dk);
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      background: transparent; border: none;
-      border-bottom: 1px solid rgba(42,26,16,.35);
-      color: var(--ink);
-      font-family: 'EB Garamond', serif; font-size: 19px;
-      padding: 8px 2px; outline: none; width: 100%; border-radius: 0;
-      transition: border-color .2s;
-    }
-    .form-group select option { background: var(--cream); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--brass-dk); }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(42,26,16,.38); font-style: italic; }
-    .form-group select { appearance: none; cursor: pointer; }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .contact-form .btn { position: relative; z-index: 1; }
-    #form-ok { display: none; position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--ink); }
-
-    /* ============================================================
-       MAILING BANNER — leather with monogram
-    ============================================================ */
-    .mail-banner {
-      position: relative;
-      background: radial-gradient(ellipse 70% 90% at 50% 50%, #33180d 0%, #1c0d07 100%);
-      padding: 120px 80px; text-align: center; overflow: hidden;
-      border-top: 1px solid var(--brass-dk);
-      box-shadow: inset 0 3px 0 -1px rgba(236,208,138,.3);
-    }
-    .mail-banner .ghost-word {
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%,-50%);
-      width: clamp(320px, 38vw, 520px); aspect-ratio: 1; border-radius: 50%;
-      border: 1px solid rgba(201,162,74,.12);
-      display: grid; place-items: center;
-      font-family: 'Cinzel', serif; font-weight: 700;
-      font-size: clamp(120px, 15vw, 220px); letter-spacing: 6px;
-      color: transparent; -webkit-text-stroke: 1px rgba(201,162,74,.08);
-      pointer-events: none;
-    }
-    .mail-banner .ghost-word::before {
-      content: ''; position: absolute; inset: 14px; border-radius: 50%;
-      border: 1px solid rgba(201,162,74,.08);
-    }
-    .mail-banner h2 {
-      position: relative;
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: clamp(42px, 5vw, 72px); line-height: 1; color: var(--cream);
-      margin-bottom: 18px;
-    }
-    .mail-banner h2 em { font-style: italic; color: var(--brass-lt); }
-    .mail-banner p { position: relative; font-size: 19px; color: rgba(232,218,192,.75); margin-bottom: 40px; }
-    .mail-form { position: relative; display: flex; max-width: 540px; margin: 0 auto; box-shadow: 0 14px 30px rgba(0,0,0,.5); }
-    .mail-form input {
-      flex: 1;
-      background: var(--cream); border: none; color: var(--ink);
-      font-family: 'EB Garamond', serif; font-size: 18px;
-      padding: 16px 20px; outline: none; border-radius: 0;
-    }
-    .mail-form input::placeholder { color: rgba(42,26,16,.45); font-style: italic; }
-    .mail-form button {
-      padding: 16px 28px;
-      background: var(--gilt); color: #24160a;
-      font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      border: none; cursor: pointer; transition: filter .2s;
-    }
-    .mail-form button:hover { filter: brightness(1.1); }
-    .mail-done { position: relative; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; color: var(--brass-lt); }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    footer {
-      background: var(--walnut-950);
-      border-top: 1px solid rgba(201,162,74,.3);
-      padding: 72px 80px 30px;
-    }
-    .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; margin-bottom: 54px; }
-    .footer-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
-    .footer-brand .seal { width: 58px; height: 58px; }
-    .footer-brand .seal span { font-size: 17px; }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: 40px; line-height: 1; color: var(--cream);
-    }
-    .footer-logo em { font-style: italic; color: var(--brass-lt); }
-    .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 300px; }
-    .footer-col h4 {
-      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 3.5px; text-transform: uppercase; color: var(--brass);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
       margin-bottom: 20px;
     }
-    .footer-nav-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-nav-list a {
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: 22px; color: var(--text);
-      transition: color .2s, padding-left .2s;
-    }
-    .footer-nav-list a:hover { color: var(--brass-lt); padding-left: 8px; }
-    .footer-socials { display: flex; gap: 12px; }
-    .footer-socials a {
-      width: 44px; height: 44px; border-radius: 50%;
-      box-shadow: inset 0 0 0 1px rgba(201,162,74,.55);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--brass-lt); transition: all .25s;
-    }
-    .footer-socials a:hover { background: var(--gilt); color: #24160a; }
-    .footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
-    .footer-bottom {
-      border-top: 1px solid rgba(201,162,74,.15);
-      padding-top: 24px;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
-    .footer-bottom p { font-family: 'Cinzel', serif; font-size: 10px; color: rgba(232,218,192,.4); letter-spacing: 2.5px; text-transform: uppercase; }
 
-    /* ============================================================
-       REVEAL
-    ============================================================ */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-bg, .hero-glow, .ticker-track { animation: none; }
-      .hero-bg { transform: none; }
-      .reveal { opacity: 1; transform: none; }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 6vw, 80px);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin-bottom: 40px;
     }
 
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--white);
+      margin-bottom: 40px;
+    }
+
+    /* ─── MUSIC ─── */
+    #music {
+      background: var(--dark-gray);
+    }
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .track-card {
+      position: relative;
+      aspect-ratio: 1;
+      background: #1a1a1a;
+      overflow: hidden;
+      cursor: pointer;
+      group: true;
+    }
+
+    .track-card-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+      transition: opacity 0.3s;
+    }
+
+    .track-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .track-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .track-type {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    .track-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: transform 0.6s ease, filter 0.4s;
+    }
+
+    .track-card:hover .track-bg {
+      transform: scale(1.05);
+    }
+
+    /* placeholder track art colors */
+    .track-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .track-placeholder-icon {
+      font-size: 48px;
+      opacity: 0.15;
+    }
+
+    .streaming-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      letter-spacing: -0.02em;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ─── LYRICS ─── */
+    #lyrics {
+      background: var(--dark-gray);
+    }
+
+    .lyrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .lyric-card {
+      background: #0d0d0d;
+      padding: 40px 36px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.25s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+
+    .lyric-card:hover {
+      background: #181818;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .lyric-card-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .lyric-card-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.05;
+      flex: 1;
+    }
+
+    .lyric-card-feat {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.45);
+      text-transform: none;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .lyric-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lyric-card-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .lyric-card-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .lyric-card:hover .lyric-card-cta {
+      color: var(--white);
+    }
+
+    /* ─── LYRICS MODAL ─── */
+    .lyrics-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 60px 24px;
+    }
+
+    .lyrics-modal-overlay.open {
+      display: flex;
+    }
+
+    .lyrics-modal {
+      background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,0.1);
+      max-width: 680px;
+      width: 100%;
+      padding: 56px 56px 48px;
+      position: relative;
+    }
+
+    .lyrics-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .lyrics-modal-close:hover { color: var(--white); }
+
+    .lyrics-modal-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .lyrics-modal-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .lyrics-modal-feat {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .lyrics-modal-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin-bottom: 36px;
+    }
+
+    .lyrics-modal-body p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 22px;
+    }
+
+    .lyrics-modal-body p em {
+      color: rgba(255,255,255,0.92);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* ─── HAMBURGER ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 200;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.97);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 10vw, 56px);
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      width: 80%;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { opacity: 0.6; }
+
+    .mobile-nav-social {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mobile-nav-social a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      padding: 0;
+      border: none;
+      width: auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      .music-inner, .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 64px; }
-      .about-portrait { max-width: 440px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 24px 32px; }
+      section { padding: 80px 32px; }
+      .hero-content { padding: 0 32px; }
+      #about { grid-template-columns: 1fr 1fr; gap: 48px; }
+      #contact { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .music-grid { grid-template-columns: repeat(3, 1fr); }
+      .shop-grid { grid-template-columns: repeat(3, 1fr); }
     }
+
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .logo-word { font-size: 22px; }
-      .seal { width: 40px; height: 40px; }
-      .nav-links {
-        position: fixed; top: var(--nav-h); left: 0; width: 100%; height: calc(100vh - var(--nav-h));
-        background: rgba(20,11,7,.98);
-        flex-direction: column; justify-content: center; gap: 34px;
-        transform: translateX(-100%); transition: transform .4s ease;
+      nav { padding: 18px 20px; }
+      .nav-links { display: none; }
+      .nav-social { display: none; }
+      .nav-hamburger { display: flex; }
+
+      section { padding: 64px 20px; }
+
+      .hero-content { padding: 0 20px; max-width: 100%; }
+      .scroll-indicator { left: 20px; }
+
+      #about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 64px 20px;
       }
-      .nav-links.open { transform: translateX(0); }
-      .nav-links a { font-size: 16px; }
-      .hamburger { display: flex; }
-      .nav-socials { display: none; }
-      .hero-bottom { padding: 0 24px 56px; }
-      .hero-bg { background-position: 50% center; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(13,7,5,.55) 0%, rgba(13,7,5,0) 22%, rgba(13,7,5,.35) 45%, rgba(13,7,5,.95) 78%); }
-      .hero-name { font-size: 84px; }
-      .hero-tag { font-size: 20px; }
-      .hero-tag::before { width: 36px; }
-      .plaque { font-size: 9px; letter-spacing: 2.5px; padding: 8px 12px 7px; gap: 8px; }
-      #music, #about, #contact { padding: 96px 24px; }
-      #manifesto { padding: 80px 20px; }
-      .tooled { padding: 56px 22px 50px; }
-      .cover-sticker { width: 78px; height: 78px; top: -16px; right: -10px; font-size: 9px; }
-      .disco-grid { grid-template-columns: 1fr; gap: 44px; }
-      .disco-head { flex-direction: column; align-items: flex-start; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form { padding: 30px 24px; }
-      .about-portrait .shot { height: 420px; }
-      footer { padding: 56px 24px 24px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .mail-banner { padding: 90px 24px; }
-      .mail-form { flex-direction: column; }
+
+      #contact {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 64px 20px;
+      }
+
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .stat-number { font-size: 36px; }
+
+      .music-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .track-card { min-height: 160px; }
+
+      .streaming-links { gap: 10px; }
+      .streaming-links .btn { padding: 10px 16px; font-size: 11px; }
+
+      .lyrics-grid { grid-template-columns: 1fr; }
+      .lyrics-modal { padding: 40px 20px 32px; }
+      .lyrics-modal-title { font-size: 36px; }
+
+      .shop-grid { grid-template-columns: 1fr 1fr; }
+
+      .media-grid { grid-template-columns: 1fr !important; }
+      .media-item { grid-column: span 1 !important; }
+
+      footer {
+        padding: 32px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .footer-social { flex-wrap: wrap; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 16px 16px; }
+      section { padding: 56px 16px; }
+
+      .hero-content { padding: 0 16px; }
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .hero-buttons .btn { text-align: center; }
+      .scroll-indicator { left: 16px; }
+
+      .music-grid { grid-template-columns: 1fr; }
+      .shop-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+
+      .lyrics-grid { grid-template-columns: 1fr; }
+      .lyric-card { padding: 28px 20px; min-height: 160px; }
+      .lyric-card-title { font-size: 26px; }
+
+      .lyrics-modal-overlay { padding: 20px 12px; }
+      .lyrics-modal { padding: 32px 16px 24px; }
+
+      footer { padding: 28px 16px; }
+    }
+
+    /* ─── MEDIA ─── */
+    #media {
+      background: var(--black);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .media-item {
+      background: #111;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .media-item:nth-child(1) { grid-column: span 8; grid-row: span 2; }
+    .media-item:nth-child(2) { grid-column: span 4; }
+    .media-item:nth-child(3) { grid-column: span 4; }
+    .media-item:nth-child(4) { grid-column: span 6; }
+    .media-item:nth-child(5) { grid-column: span 6; }
+
+    .media-placeholder {
+      width: 100%;
+      padding-bottom: 60%;
+      background: #1a1a1a;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .media-item:nth-child(1) .media-placeholder {
+      padding-bottom: 56%;
+    }
+
+    .media-placeholder-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s;
+    }
+
+    .media-item:hover .play-icon { border-color: rgba(255,255,255,0.8); }
+
+    .play-icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0 8px 16px;
+      border-color: transparent transparent transparent rgba(255,255,255,0.7);
+      margin-left: 4px;
+    }
+
+    .media-caption {
+      padding: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ─── SHOP ─── */
+    #shop {
+      background: var(--dark-gray);
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .merch-card {
+      background: #0f0f0f;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .merch-card:hover { opacity: 0.85; }
+
+    .merch-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #1a1a1a;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .merch-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .merch-card:hover .merch-image img {
+      transform: scale(1.04);
+    }
+
+    .merch-info {
+      padding: 20px;
+    }
+
+    .merch-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .merch-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding-top: 40px;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+    }
+
+    .contact-detail {
+      margin-bottom: 24px;
+    }
+
+    .contact-detail-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .contact-detail-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+    }
+
+    .contact-detail-value:hover { opacity: 0.7; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      padding: 12px 0;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(255,255,255,0.8);
+    }
+
+    .form-textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--white); }
+
+    /* ─── MOBILE ─── */
+
+
+
+
+    /* ─── SCROLL REVEAL (simple fade) ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAV
-============================================================ -->
-<nav id="nav">
-  <a href="#home" class="logo" aria-label="K.Wisdom home">
-    <span class="seal"><span>KW</span></span>
-    <span class="logo-word">K.<em>Wisdom</em></span>
-  </a>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">CLAZZ@CT</a>
+    <ul class="nav-links">
+      <li><a href="#music">Music</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#lyrics">Lyrics</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener" aria-label="Spotify">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.313c-.216.356-.66.46-1.012.244-2.772-1.694-6.258-2.078-10.365-1.138-.396.09-.793-.157-.883-.553-.09-.396.157-.793.553-.883 4.488-1.026 8.337-.585 11.44 1.318.356.216.46.66.267 1.012zm1.47-3.27c-.272.444-.847.583-1.29.313-3.172-1.95-8.01-2.515-11.76-1.376-.49.146-1.005-.132-1.151-.62-.147-.49.13-1.006.62-1.152 4.286-1.302 9.614-.672 13.268 1.568.444.272.583.847.313 1.267zm.127-3.4C15.576 8.498 8.887 8.254 5.158 9.384c-.59.18-1.215-.155-1.394-.745-.18-.59.155-1.215.745-1.395 4.29-1.307 11.418-1.054 15.924 1.522.533.317.709 1.005.392 1.538-.316.532-1.004.708-1.536.392z"/></svg>
+      </a>
+      <!-- Apple Music -->
+      <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener" aria-label="Apple Music">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.05-.003-.083-.01-.1-.02H5.934a7.26 7.26 0 00-.708.05 9.948 9.948 0 00-1.649.31c-1.31.434-2.278 1.258-2.87 2.498A5.38 5.38 0 00.3 4.8a12.6 12.6 0 00-.294 2.256c0 .06-.003.12-.006.18V16.8c.003.06.006.12.01.18.033.644.096 1.283.255 1.904.35 1.34 1.1 2.36 2.22 3.097a5.13 5.13 0 001.892.737 11.25 11.25 0 001.64.157c.052.004.086.012.1.02h12.16a8.87 8.87 0 001.297-.106c.65-.104 1.27-.3 1.842-.626 1.115-.638 1.822-1.588 2.1-2.84.12-.54.176-1.09.195-1.644.006-.12.01-.24.01-.36V6.46c0-.114-.002-.228-.006-.34zM9.964 16.694c0 .53-.424.95-.95.95a.948.948 0 01-.95-.95V9.55c0-.525.424-.95.95-.95.527 0 .95.426.95.95v7.144zm4.515 0c0 .53-.424.95-.95.95a.948.948 0 01-.95-.95V9.55c0-.525.424-.95.95-.95.527 0 .95.426.95.95v7.144zm3.437-6.832v6.832c0 .53-.423.95-.95.95a.948.948 0 01-.95-.95V9.55c0-.525.424-.95.95-.95.527 0 .95.426.95.95v.362zm-9.38-2.82a.948.948 0 01-.95.95.948.948 0 01-.95-.95V6.46c0-.525.424-.95.95-.95.527 0 .95.426.95.95v.582z"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+      <!-- Tidal -->
+      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener" aria-label="Tidal">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004L20.02 12l4.004-4.004-4.004-4.004-4.004 4.004-4.004-4.004zM8.008 12.008l-4.004 4.004L8.008 20.016l4.004-4.004-4.004-4.004z"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/profile.php?id=61592201805222" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <!-- Deezer -->
+      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener" aria-label="Deezer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.944 17.773h3.944v2.25h-3.944v-2.25zm-5.21.34h3.945v1.91h-3.945v-1.91zm-5.212.617h3.945v1.293H8.522v-1.293zm-5.212.455H7.255v.838H3.31v-.838zM18.944 14.078h3.944v2.847h-3.944v-2.847zm-5.21.433h3.945v2.414h-3.945v-2.414zm-5.212.781h3.945v1.633H8.522v-1.633zm-5.212.563H7.255v1.07H3.31v-1.07zm15.634-5.01h3.944v3.594h-3.944v-3.594zm-5.21.549h3.945v3.045h-3.945v-3.045zm-5.212.987h3.945v2.058H8.522v-2.058zm-5.212.712H7.255v1.346H3.31v-1.346zm15.634-5.64h3.944v4.53h-3.944v-4.53zm-5.21.692h3.945v3.838h-3.945V7.145zM8.522 7.88h3.945v3.104H8.522V7.88zm-5.212.9H7.255v1.7H3.31V8.78zm15.634-5.8h3.944v4.992h-3.944V2.98zm-5.21.875h3.945v4.117h-3.945V3.855zm-5.212 1.24h3.945v2.877H8.522V5.095z"/></svg>
+      </a>
+      <!-- Amazon Music -->
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener" aria-label="Amazon Music">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.699-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.076-1.051-.872-1.238-1.276-1.814-2.106-1.734 1.768-2.962 2.296-5.209 2.296-2.66 0-4.731-1.641-4.731-4.927 0-2.566 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.097v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.818-1.774-.818-1.206 0-2.282.618-2.545 1.9-.054.285-.261.567-.549.582l-3.061-.33c-.259-.056-.548-.266-.472-.66.703-3.71 4.056-4.826 7.059-4.826 1.537 0 3.546.41 4.758 1.574 1.538 1.436 1.392 3.352 1.392 5.438v4.927c0 1.484.616 2.134 1.192 2.935.204.285.249.628-.01.839-.647.541-1.794 1.537-2.419 2.065zm3.11 1.179c-5.992 4.285-14.683 1.824-19.222-3.368-.234-.264.024-.516.27-.323 4.929 3.311 11.031 4.291 16.427 2.33.333-.12.616.218.525.461zm1.433-1.648c-.316-.402-2.083-.189-2.879-.096-.243.03-.28-.182-.062-.334 1.409-.99 3.726-.705 3.996-.373.273.335-.072 2.65-1.393 3.754-.202.17-.396.08-.307-.144.298-.741.966-2.401.645-2.807z"/></svg>
+      </a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#home" class="active" data-section="home">Home</a></li>
-    <li><a href="#music" data-section="music">Music</a></li>
-    <li><a href="#about" data-section="about">About</a></li>
-    <li><a href="#contact" data-section="contact">Contact</a></li>
-  </ul>
-
-  <div class="nav-right">
-    <div class="nav-socials">
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-      <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
-      <a href="#" aria-label="Apple Music"><svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.064-2.31-2.22-3.01a5.022 5.022 0 0 0-1.61-.64c-.67-.13-1.34-.17-2.01-.17H5.99c-.67 0-1.34.04-2.01.17A5.022 5.022 0 0 0 2.37.904C1.21 1.604.464 2.604.147 3.934a9.23 9.23 0 0 0-.24 2.19C-.002 6.734-.01 7.334-.01 8.124v7.75c0 .79.007 1.39.143 1.997.317 1.31 1.063 2.31 2.22 3.01.49.3 1.04.5 1.61.64.67.13 1.34.17 2.01.17h12.054c.67 0 1.34-.04 2.01-.17.57-.14 1.12-.34 1.61-.64 1.157-.7 1.903-1.7 2.22-3.01.136-.607.143-1.207.143-1.997V8.124c0-.79-.007-1.39-.017-2zm-6.49 8.934h-1.37v-5.73l-3.65 5.73H11.1V9.754h1.37v5.71l3.64-5.71h1.394v5.304z"/></svg></a>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#music" onclick="closeMobileNav()">Music</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#lyrics" onclick="closeMobileNav()">Lyrics</a>
+    <a href="#media" onclick="closeMobileNav()">Media</a>
+    <a href="#shop" onclick="closeMobileNav()">Shop</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    <div class="mobile-nav-social">
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener">Tidal</a>
+      <a href="https://www.facebook.com/profile.php?id=61592201805222" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener">Amazon Music</a>
     </div>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
 
-
-<!-- ============================================================
-     HERO
-============================================================ -->
-<section id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-glow"></div>
-
-  <div class="hero-bottom">
-    <span class="plaque"><i></i>Purpose Wave Entertainment<i></i></span>
-    <h1 class="hero-name">
-      <span class="k">K.</span>
-      <span class="w gold-text">Wisdom</span>
-    </h1>
-    <p class="hero-tag"><span>The new album <b>Boundaries</b> — now in session.</span></p>
-    <div class="hero-actions">
-      <a href="#music" class="btn">Hear Boundaries</a>
-      <a href="#about" class="btn ghost">The Story</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">CLAZZ<br>@CT</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Clever Lyrics. Real Life.<br>No Filter.</p>
+      <p class="hero-sub">Wordplay with depth.<br>Stories that stay with you.</p>
+      <div class="hero-buttons">
+        <a href="#music" class="btn btn-primary">Listen Now</a>
+        <a href="#shop" class="btn btn-outline">Shop Merch</a>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-<!-- Brass rail -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>K.Wisdom</span><span class="x">◆</span><span>Boundaries</span><span class="x">◆</span><span>Now Available</span><span class="x">◆</span><span>Know Your Lines</span><span class="x">◆</span><span>Wisdom Over Noise</span><span class="x">◆</span>
-    <span>K.Wisdom</span><span class="x">◆</span><span>Boundaries</span><span class="x">◆</span><span>Now Available</span><span class="x">◆</span><span>Know Your Lines</span><span class="x">◆</span><span>Wisdom Over Noise</span><span class="x">◆</span>
-  </div>
-</div>
+  <!-- MUSIC -->
+  <section id="music">
+    <div class="reveal">
+      <p class="section-label">Discography</p>
+      <h2 class="section-title">Music</h2>
+      <div class="section-divider"></div>
+    </div>
 
+    <div class="streaming-links reveal">
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener" class="btn btn-outline">Spotify</a>
+      <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener" class="btn btn-outline">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" class="btn btn-outline">YouTube</a>
+      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener" class="btn btn-outline">Tidal</a>
+      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener" class="btn btn-outline">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener" class="btn btn-outline">Amazon Music</a>
+    </div>
 
-<!-- ============================================================
-     MUSIC
-============================================================ -->
-<section id="music">
-  <div class="music-inner reveal">
-    <div class="album-art-wrap">
-      <div class="frame">
-        <div class="cover-sticker">NEW<br>RELEASE</div>
-        <div class="mat">
-          <div class="cover">
-            <img class="cover-art" src="boundaries_cover.jpg" alt="K.Wisdom — Boundaries album cover" />
+    <div class="music-grid reveal">
+      <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C296N2','_blank')" style="cursor:pointer;">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        </div>
+        <div class="track-card-inner">
+          <span class="track-num">01</span>
+          <span class="track-title">Just Gotta Slow Down &amp; Think</span>
+          <span class="track-type">Single</span>
+        </div>
+      </div>
+      <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3CGLVD1','_blank')" style="cursor:pointer;">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        </div>
+        <div class="track-card-inner">
+          <span class="track-num">02</span>
+          <span class="track-title">Accountability for Sale</span>
+          <span class="track-type">Single</span>
+        </div>
+      </div>
+      <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C4HDDY','_blank')" style="cursor:pointer;">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        </div>
+        <div class="track-card-inner">
+          <span class="track-num">03</span>
+          <span class="track-title">Learn To Love Me</span>
+          <span class="track-type">Single</span>
+        </div>
+      </div>
+      <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C48XW2','_blank')" style="cursor:pointer;">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        </div>
+        <div class="track-card-inner">
+          <span class="track-num">04</span>
+          <span class="track-title">It's Bigger Than Me</span>
+          <span class="track-type">Single</span>
+        </div>
+      </div>
+      <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C1KHQH','_blank')" style="cursor:pointer;">
+        <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
+        </div>
+        <div class="track-card-inner">
+          <span class="track-num">05</span>
+          <span class="track-title">Why Not Listen to This?</span>
+          <span class="track-type">Single</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-image reveal">
+      <img src="img/hero.png" alt="CLAZZ@CT" />
+    </div>
+    <div class="about-text">
+      <div class="reveal">
+        <p class="section-label">The Artist</p>
+        <h2 class="section-title">About</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reveal">
+        <p>CLAZZ@CT is an artificial intelligence–created hip-hop artist developed by MD Taylor, founder and creator of Purpose Wave Entertainment. Inspired by Taylor's experiences mentoring young men, CLAZZ@CT was created to represent a thoughtful, positive young adult who sees beyond life's distractions and expresses what many young men think but may not always feel free to say.</p>
+        <p>His music blends sharp lyricism, clever wordplay, and authentic storytelling with a calm sense of curiosity. Rather than speaking at young listeners, CLAZZ@CT creates space for them to listen, reflect, question the world, and explore their own ideas without judgment or ridicule.</p>
+        <p>Each track presents realism through moments of triumph, struggle, growth, and personal exploration. His lyrics examine life with honesty and composure, offering perspective without pretending to have every answer. From introspective deep cuts to high-energy anthems, CLAZZ@CT delivers music with meaning—no filler, no filter.</p>
+        <p>Rooted in real experiences and driven by purpose, his verses are designed to linger long after the final bar, giving young men the freedom to think deeply, speak honestly, and find confidence in their own voice.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div>
+          <span class="stat-number">1</span>
+          <span class="stat-label">Singles Released</span>
+        </div>
+        <div>
+          <span class="stat-number">1</span>
+          <span class="stat-label">Studio Album</span>
+        </div>
+        <div>
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Bars in the Tank</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LYRICS -->
+  <section id="lyrics">
+    <div class="reveal">
+      <p class="section-label">The Words</p>
+      <h2 class="section-title">Lyrics</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="lyrics-grid reveal">
+
+      <div class="lyric-card" onclick="openLyrics(0)">
+        <div>
+          <div class="lyric-card-num">01</div>
+          <div class="lyric-card-title">Just Gotta Slow Down &amp; Think</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
+      <div class="lyric-card" onclick="openLyrics(1)">
+        <div>
+          <div class="lyric-card-num">02</div>
+          <div class="lyric-card-title">Accountability for Sale
+            <span class="lyric-card-feat">feat. L.E. Vayshun &amp; Blasha</span>
           </div>
         </div>
-      </div>
-      <span class="nameplate">Boundaries · 2026</span>
-    </div>
-    <div class="music-info">
-      <p class="section-label">The New Album</p>
-      <h2 class="section-heading"><em>Boundaries</em></h2>
-      <div class="rule"></div>
-      <span class="release-tag">Album · 2026 · Purpose Wave</span>
-      <p>Every line on this record was earned. <em>Boundaries</em> is K.Wisdom on what discipline protects, what loyalty costs, and the lines a grown man has to draw — with his past, his people, and himself. Warm keys, rich soul, and verses that sound like a conversation in the office after everyone else has gone home.</p>
-      <div class="stream-row">
-        <a href="#" target="_blank" class="stream-pill"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg> Spotify</a>
-        <a href="#" target="_blank" class="stream-pill"><svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.064-2.31-2.22-3.01a5.022 5.022 0 0 0-1.61-.64c-.67-.13-1.34-.17-2.01-.17H5.99c-.67 0-1.34.04-2.01.17A5.022 5.022 0 0 0 2.37.904C1.21 1.604.464 2.604.147 3.934a9.23 9.23 0 0 0-.24 2.19C-.002 6.734-.01 7.334-.01 8.124v7.75c0 .79.007 1.39.143 1.997.317 1.31 1.063 2.31 2.22 3.01.49.3 1.04.5 1.61.64.67.13 1.34.17 2.01.17h12.054c.67 0 1.34-.04 2.01-.17.57-.14 1.12-.34 1.61-.64 1.157-.7 1.903-1.7 2.22-3.01.136-.607.143-1.207.143-1.997V8.124c0-.79-.007-1.39-.017-2zm-6.49 8.934h-1.37v-5.73l-3.65 5.73H11.1V9.754h1.37v5.71l3.64-5.71h1.394v5.304z"/></svg> Apple Music</a>
-        <a href="#" target="_blank" class="stream-pill"><svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> YouTube</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Discography -->
-  <div class="disco-wrap reveal">
-    <div class="disco-head">
-      <div>
-        <p class="section-label">From the Album · Boundaries</p>
-        <h3>Songs <em>Coming Soon</em></h3>
-      </div>
-      <a href="#mail-form" class="btn ghost">Get Notified</a>
-    </div>
-    <div class="disco-grid">
-      <div class="disco-card">
-        <div class="frame"><div class="mat"><div class="disco-art">
-          <div class="bg"></div>
-          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-          <div class="soon">Coming Soon</div>
-          <div class="label">Track 01</div>
-        </div></div></div>
-        <div class="shelf"></div>
-        <div class="disco-info"><span class="disco-title">Track 01 — Title TBA</span><span class="disco-meta">Boundaries</span></div>
-      </div>
-      <div class="disco-card">
-        <div class="frame"><div class="mat"><div class="disco-art">
-          <div class="bg"></div>
-          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-          <div class="soon">Coming Soon</div>
-          <div class="label">Track 02</div>
-        </div></div></div>
-        <div class="shelf"></div>
-        <div class="disco-info"><span class="disco-title">Track 02 — Title TBA</span><span class="disco-meta">Boundaries</span></div>
-      </div>
-      <div class="disco-card">
-        <div class="frame"><div class="mat"><div class="disco-art">
-          <div class="bg"></div>
-          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-          <div class="soon">Coming Soon</div>
-          <div class="label">Track 03</div>
-        </div></div></div>
-        <div class="shelf"></div>
-        <div class="disco-info"><span class="disco-title">Track 03 — Title TBA</span><span class="disco-meta">Boundaries</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     MANIFESTO
-============================================================ -->
-<section id="manifesto">
-  <div class="tooled reveal">
-    <p class="manifesto-line">Every <span class="hl gold-text">boundary</span> I keep is a lesson somebody paid for.</p>
-    <p class="manifesto-sig">— K.Wisdom</p>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     ABOUT
-============================================================ -->
-<section id="about" class="paneled">
-  <div class="about-inner">
-    <div class="about-text reveal">
-      <p class="section-label">The Artist</p>
-      <h2 class="section-heading">Wisdom Has<br><em>A Backbone</em></h2>
-      <div class="rule"></div>
-      <p>K.Wisdom writes from the study — leather chair, lamp on, the trophies and the folded flag on the shelf behind him. Every keepsake in that room is a chapter: the field, the uniform, the degree, the deals. The music is what he learned earning each one.</p>
-      <p>The sound is grown and unhurried — warm keys, rich soul samples, drums that land like a closing door. No flexing for the sake of it. Just a man who has seen enough to know where the lines go, and has the discipline to hold them.</p>
-      <div class="about-quote">
-        <blockquote>A boundary isn't a wall. It's wisdom with a backbone.</blockquote>
-      </div>
-      <p>Released under Purpose Wave Entertainment, K.Wisdom joins a roster of artists using new tools to tell old, unfinished stories.</p>
-      <div class="about-facts">
-        <div class="about-fact"><span class="about-fact-key">Label</span><span class="leader"></span><span class="about-fact-val">Purpose Wave Entertainment</span></div>
-        <div class="about-fact"><span class="about-fact-key">Genre</span><span class="leader"></span><span class="about-fact-val">Grown Hip-Hop / Soul</span></div>
-        <div class="about-fact"><span class="about-fact-key">Themes</span><span class="leader"></span><span class="about-fact-val">Wisdom · Discipline · Legacy</span></div>
-        <div class="about-fact"><span class="about-fact-key">New Album</span><span class="leader"></span><span class="about-fact-val">Boundaries (2026)</span></div>
-        <div class="about-fact"><span class="about-fact-key">Booking</span><span class="leader"></span><span class="about-fact-val">Via the correspondence form</span></div>
-      </div>
-    </div>
-    <div class="about-portrait reveal">
-      <div class="frame">
-        <div class="mat">
-          <div class="shot" role="img" aria-label="K.Wisdom seated in a leather chair in his study"></div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
         </div>
       </div>
-      <span class="nameplate">K.Wisdom · The Study</span>
+
+      <div class="lyric-card" onclick="openLyrics(2)">
+        <div>
+          <div class="lyric-card-num">03</div>
+          <div class="lyric-card-title">Learn To Love Me</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="lyric-card" onclick="openLyrics(3)">
+        <div>
+          <div class="lyric-card-num">04</div>
+          <div class="lyric-card-title">It's Bigger Than Me</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
+      <div class="lyric-card" onclick="openLyrics(4)">
+        <div>
+          <div class="lyric-card-num">05</div>
+          <div class="lyric-card-title">Why Not Listen to This?</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
+      <div class="lyric-card" onclick="openLyrics(5)">
+        <div>
+          <div class="lyric-card-num">06</div>
+          <div class="lyric-card-title">Am I Trippin?</div>
+        </div>
+        <div class="lyric-card-footer">
+          <span class="lyric-card-tag">Single</span>
+          <span class="lyric-card-cta">Read Lyrics →</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LYRICS MODAL -->
+  <div class="lyrics-modal-overlay" id="lyricsModal" onclick="closeLyricsModal(event)">
+    <div class="lyrics-modal">
+      <button class="lyrics-modal-close" onclick="closeLyrics()">✕ Close</button>
+      <div class="lyrics-modal-num" id="modalNum"></div>
+      <div class="lyrics-modal-title" id="modalTitle"></div>
+      <span class="lyrics-modal-feat" id="modalFeat"></span>
+      <div class="lyrics-modal-divider"></div>
+      <div class="lyrics-modal-body" id="modalBody"></div>
     </div>
   </div>
-</section>
 
+  <!-- MEDIA -->
+  <section id="media">
+    <div class="reveal">
+      <p class="section-label">Videos & Photos</p>
+      <h2 class="section-title">Media</h2>
+      <div class="section-divider"></div>
+    </div>
 
-<!-- ============================================================
-     CONTACT
-============================================================ -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="contact-info reveal">
-      <p class="section-label">Correspondence</p>
-      <h2 class="section-heading">Contact &amp;<br><em>Booking</em></h2>
-      <div class="rule"></div>
-      <p>Bookings, press, features, or a word from the people — send it to the desk. Every letter gets read.</p>
-      <div class="contact-details">
-        <div><div class="contact-detail-label">General</div><div class="contact-detail-val">info@purposewaveradio.com</div></div>
-        <div><div class="contact-detail-label">Booking</div><div class="contact-detail-val">info@purposewaveradio.com</div></div>
-        <div><div class="contact-detail-label">Press &amp; Media</div><div class="contact-detail-val">info@purposewaveradio.com</div></div>
-        <div><div class="contact-detail-label">Label</div><div class="contact-detail-val">Purpose Wave Entertainment</div></div>
+    <div class="media-grid reveal" style="grid-template-columns:1fr;">
+      <div class="media-item" >
+        <div style="position:relative; width:100%; padding-bottom:56.25%; background:#000;">
+          <iframe
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+            src="https://www.youtube.com/embed/kKhxhKinDxo?si=bYiUfIeKrByfZ1BF"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="media-caption">CLAZZ@CT — Official Video</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop" style="padding:0; position:relative; overflow:hidden; min-height:520px; display:flex; align-items:center; justify-content:center;">
+    <div style="position:absolute; inset:0; background:url('img/merch_tee_hoodie_promo_bg.jpg') center center / cover no-repeat; filter:brightness(0.35);"></div>
+    <div style="position:relative; z-index:2; text-align:center; padding:100px 48px;">
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:20px;">Official Merch</p>
+      <h2 style="font-family:'Bebas Neue','Barlow Condensed',sans-serif; font-size:clamp(56px,10vw,120px); line-height:0.95; letter-spacing:0.02em; text-transform:uppercase; color:#fff; margin-bottom:24px;">Shop</h2>
+      <div style="width:40px; height:1px; background:rgba(255,255,255,0.4); margin:0 auto 32px;"></div>
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:clamp(14px,2vw,20px); letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Coming Soon</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <div class="reveal">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Contact</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reveal">
+        <p>For bookings, press inquiries, features, or just to connect — reach out below.</p>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Bookings</span>
+          <a href="mailto:info@purposewaveradio.com" class="contact-detail-value">info@purposewaveradio.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Press & Media</span>
+          <a href="mailto:info@purposewaveradio.com" class="contact-detail-value">info@purposewaveradio.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Management</span>
+          <a href="mailto:info@purposewaveradio.com" class="contact-detail-value">info@purposewaveradio.com</a>
+        </div>
       </div>
     </div>
 
-    <form class="contact-form reveal" onsubmit="submitForm(event)">
-      <div class="letterhead">
-        <span class="seal"><span>KW</span></span>
-        <div class="letterhead-text">From the desk of K.Wisdom<small>Purpose Wave Entertainment</small></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="fn">First Name</label>
-          <input id="fn" type="text" placeholder="First" required />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="ln">Last Name</label>
-          <input id="ln" type="text" placeholder="Last" required />
-        </div>
+    <form class="contact-form reveal" onsubmit="return false;">
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input class="form-input" type="text" placeholder="Your name" />
       </div>
       <div class="form-group">
-        <label class="form-label" for="em">Email</label>
-        <input id="em" type="email" placeholder="your@email.com" required />
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" placeholder="your@email.com" />
       </div>
       <div class="form-group">
-        <label class="form-label" for="subj">Subject</label>
-        <select id="subj">
-          <option value="" disabled selected>Select a subject</option>
-          <option>Booking Inquiry</option>
-          <option>Press / Media</option>
-          <option>Feature / Collaboration</option>
-          <option>Fan Message</option>
-          <option>Other</option>
-        </select>
+        <label class="form-label">Subject</label>
+        <input class="form-input" type="text" placeholder="Booking / Press / General" />
       </div>
       <div class="form-group">
-        <label class="form-label" for="msg">Message</label>
-        <textarea id="msg" placeholder="State your business…" required></textarea>
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Your message..."></textarea>
       </div>
-      <button type="submit" class="btn" style="align-self:flex-start">Send Letter</button>
-      <p id="form-ok">Received with thanks. We'll be in touch.</p>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
     </form>
-  </div>
-</section>
+  </section>
 
-
-<!-- ============================================================
-     MAILING LIST
-============================================================ -->
-<div class="mail-banner">
-  <div class="ghost-word">KW</div>
-  <p class="section-label" style="position:relative">The Inner Circle</p>
-  <h2>Get the Wisdom <em>First</em></h2>
-  <p>Boundaries updates, unreleased verses, and show dates — delivered to your inbox.</p>
-  <form class="mail-form" id="mail-form" onsubmit="submitMail(event)">
-    <input type="email" placeholder="Enter your email address" required />
-    <button type="submit">Join</button>
-  </form>
-</div>
-
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">
-        <span class="seal"><span>KW</span></span>
-        <span class="footer-logo">K.<em>Wisdom</em></span>
-      </div>
-      <p class="footer-tagline">Know your worth. Draw your lines.<br>Boundaries — now available.</p>
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">CLAZZ@CT</span>
+    <span class="footer-copy">© 2024 CLAZZ@CT · Purpose Wave Entertainment. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener">Tidal</a>
+      <a href="https://www.facebook.com/profile.php?id=61592201805222" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener">Amazon Music</a>
     </div>
-    <div class="footer-col">
-      <h4>Navigate</h4>
-      <ul class="footer-nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#music">Music</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Follow</h4>
-      <div class="footer-socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-        <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 K.Wisdom. All Rights Reserved.</p>
-    <p>Purpose Wave Entertainment</p>
-  </div>
-</footer>
+  </footer>
 
+  <script>
 
-<script>
-  // Nav solid on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 80));
+    const lyricsData = [
+      {
+        num: "01", title: "Just Gotta Slow Down &amp; Think", feat: "", tag: "Single",
+        body: `<p>Yeah…</p><p>Late nights alone really teach you things.<br>Sometimes the hardest relationship to fix…<br>Is the one you got with yourself.</p><p>I spent too much time lookin' for validation<br>Tryna fill empty spaces through conversation<br>Smilin' outside while my soul felt tired<br>Buildin' everybody else while I slowly expired<br>And nobody noticed.</p><p>Cause I got good at wearin' masks<br>Laughin' through pain while avoidin' my past<br>Every scar turned into hidden frustration<br>Every disappointment shaped my hesitation</p><p>I used to think love came from somebody else<br>Till I sat in silence forced to face myself<br>And honestly?<br>I ain't even know me deeply<br>Too busy seekin' approval from people who couldn't keep me</p><p><em>So now I'm learnin' to love me<br>Even on the nights it get ugly<br>Even when the mirror show pain beneath<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p><p>See self-love deeper than confidence quotes<br>Deeper than pretendin' everything growth<br>Sometimes self-love look like cuttin' people off<br>Sometimes it's cryin' while rebuildin' from loss<br>Sometimes it's restin' when your spirit exhausted<br>Sometimes it's realizin' trauma distorted<br>How you saw yourself all these years<br>Now you tryna separate your worth from your fears</p><p>And that process painful.<br>Cause healing force you to sit with yourself<br>No distractions, no lies, no help<br>Just truth echoing loud through the room<br>While you confront every wound you consumed</p><p>But I'm tired of punishin' myself mentally<br>Tired of speakin' doubt over my energy<br>Tired of feelin' unworthy of peace<br>When I survived things that could've buried me deep</p><p>Maybe I deserved patience too.<br>Maybe I deserved understanding too.<br>Maybe…<br>I needed my own love the most.</p><p>So now I protect my peace different<br>Move slower, think deeper, love wiser with it<br>No more chasin' people who drain my soul<br>No more abandonin' myself for control<br>I learned boundaries holy<br>I learned solitude can restore me<br>I learned growth ain't loud all the time<br>Sometimes it's quiet healing inside your mind</p><p>And yeah, I still got nights I overthink<br>Still got moments I feel incomplete<br>But now I catch myself before I fall apart<br>Cause I finally started listenin' to my heart</p><p>And maybe that's what self-love really is<br>Not perfection, just acceptance within<br>Knowin' you flawed but still worthy of care<br>Still worthy of breath, purpose, and prayer</p><p><em>I'm still learnin' to love me<br>Even through the chaos inside me<br>Even when life feel heavy on me<br>I'm finally givin' grace to me<br>Learnin' to love me<br>Not for perfection, just honesty<br>No more runnin' from who I be<br>I'm finally learnin' to love me</em></p><p>For the first time in a long time…<br>I looked in the mirror…<br>And didn't hate who was lookin' back at me.</p>`
+      },
+      {
+        num: "02", title: "Accountability for Sale", feat: "feat. L.E. Vayshun &amp; Blasha", tag: "Single",
+        body: `<p>Everybody got a reason.<br>Everybody got an explanation.<br>Everybody got a diagnosis.<br>Everybody got somebody else to blame.<br>But who responsible?</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>I see a world addicted to explanations<br>Every action need a public justification<br>Every bad choice need a softer definition<br>Till consequences disappear from the discussion</p><p>Now don't get it twisted, pain is real<br>Mental health struggles absolutely real<br>People fight battles nobody can see<br>And compassion should exist naturally</p><p>But somewhere we confused understanding with exemption<br>Like accountability became offensive to mention<br>Sometimes trauma involved, sometimes life got rough<br>And sometimes somebody simply made a bad choice, enough</p><p>Cause every mistake ain't a condition to diagnose<br>Every weakness ain't a disorder to disclose<br>Sometimes growth start where excuses stop<br>And character built when ownership adopted</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>Words keep changin', definitions get stretched<br>Till language itself become a political chess set<br>One group redefine terms to gain influence<br>Another group respond and create more confusion<br>Now everybody fightin' over vocabulary<br>While everyday people wonder what's necessary</p><p>And I noticed somethin' strange in the culture lately<br>Everybody demand respect immediately<br>While offerin' none when disagreement appear<br>Then call conversation violence if they hear what they fear<br>Cancel one side, protect another side<br>Apply standards different dependin' on the tribe<br>Rights used against rights in a constant collision<br>Everybody claim justice from their position</p><p>What happens when every side claims moral authority?<br>What happens when nobody questions themselves?<br>What happens when power wears the mask of virtue?</p><p>Cause conflict sell.<br>Fear sell.<br>Division sell.<br>Attention sell.<br><br>But discipline don't trend.<br>Humility don't trend.<br>Self-reflection don't trend.<br>Personal responsibility don't trend.<br><br>Yet that's where real growth live.</p><p>And maybe society stronger when we balance both<br>Compassion for pain and accountability for growth<br>Understanding circumstance without removin' agency<br>Recognizin' influence without denyin' responsibility</p><p><em>Accountability for sale, who buyin' that today?<br>Everybody got an excuse they can hide behind and say<br>"It wasn't me, it was society"<br>"It wasn't choice, it was anxiety"<br>Accountability for sale, but nobody want the cost<br>Everybody want the rights, nobody want the loss<br>Everybody want freedom when it's convenient<br>Till responsibility show up and they don't wanna see it</em></p><p>A healthy society needs compassion.<br>A healthy society needs freedom.<br>A healthy society needs responsibility too.<br>Take away any one of them...<br>And eventually the whole structure starts to lean.</p>`
+      },
+      {
+        num: "03", title: "Learn To Love Me", feat: "", tag: "Single",
+        body: `<p style="opacity:0.4; font-style:italic;">Lyrics coming soon…</p>`
+      },
+      {
+        num: "04", title: "It's Bigger Than Me", feat: "", tag: "Single",
+        body: `<p>Yeah…<br>This ain't just about me.<br>Too many people suffered…<br>Too many people sacrificed…<br>Too many people carried pain on they back<br>Just so I could stand here today.<br>So nah…<br>I can't quit.<br>It's bigger than me.</p><p>I think about hands with scars on 'em<br>People workin' long shifts with the world on 'em<br>People who got overlooked and disrespected<br>Still woke up every day and stayed invested<br>Some survived wars, some survived chains<br>Some survived poverty and generational pain<br>Some lost dreams just to feed they kids<br>Sacrificed they own life for what I could live</p><p>And I feel that pressure in my spirit<br>Every time I complain, I can hear it<br>Like "boy, you better stand tall and move"<br>Cause too much blood got spilled for you to lose</p><p>So when life hit hard I adjust my vision<br>I refuse to drown inside self-pity prisons<br>Nah, the past ain't chains, it's perspective<br>Pain can teach if you learn the lesson</p><p><em>It's bigger than me<br>Every sacrifice still livin' through me<br>Every struggle built the man I'm tryna be<br>So I move with purpose every step I breathe<br>It's bigger than me<br>No system, no hate gon' bury me<br>No barrier strong enough to stop destiny<br>Cause too many people prayed for me to succeed</em></p><p>I ain't weaponizin' history for sympathy<br>I'm usin' it to understand responsibility<br>Cause some people stay trapped in yesterday<br>While others take wisdom and create a way<br>See the past always gon' be the past<br>Can't build tomorrow if you only live backwards<br>But you better respect what came before you<br>Cause roots matter if the tree gon' grow too</p><p>I know young people angry, I understand why<br>But rage alone won't elevate your life<br>You gotta build, think, create, move smarter<br>Turn pain into fuel and push harder<br>Cause my ancestors ain't survive for excuses<br>They endured conditions that would mentally ruin<br>Most people today if they saw that pressure<br>Would fold in a week from the weight and effort</p><p>Yet they kept movin'.<br>Still had faith through impossible seasons<br>Still had families, dreams, and reasons<br>That's why I can't let temporary setbacks break me<br>Weak mentality could never remake me</p><p>"Keep goin'…"<br>"Stand tall…"<br>"Don't waste the sacrifice…"</p><p>I'm young but I finally understand<br>Life bigger than likes and temporary plans<br>Bigger than trends, bigger than online noise<br>Bigger than ego disguised as prideful voice<br>I carry names I may never know<br>People whose bloodline made my growth possible<br>And one day somebody gon' look at me<br>The same way I look at history</p><p>That hit different.<br>Cause now every move got deeper meaning<br>Every late night got stronger reason<br>I don't just win for me anymore<br>I win for every person who couldn't before</p><p>No corruption can poison my direction<br>No attitude can weaken my progression<br>No obstacle made by man gon' stop me<br>When generations sacrificed to build me properly</p><p>The past ain't a place to live.<br>It's a place to learn from.<br>Respect it.<br>Study it.<br>Carry it with honor.<br>Then move forward.</p><p>Because it's bigger than me.</p>`
+      },
+      {
+        num: "05", title: "Why Not Listen to This?", feat: "", tag: "Single",
+        body: `<p>Yeah…<br>Turn the volume down for a second.<br>I got a question.<br>If music can influence destruction…<br>Why can't it influence construction?</p><p><em>Why not listen to this?<br>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>They market confusion and call it expression<br>Market self-destruction and call it progression<br>Market addiction, division, and rage<br>Then wonder why society trapped in a cage</p><p>What happened to music that helped people believe?<br>What happened to records that built aspiration?<br>Songs that inspired entire generations?<br>Songs that made fathers wanna be better men?<br>Songs that made people wanna build again?</p><p>Now every playlist flooded with excess<br>More greed, more violence, more reckless<br>And the people profitin' from it ain't livin' that life<br>They safe in the hills while communities fight</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?<br>Why not listen to this?<br>If the message build minds, why they fightin' against it?<br>If the truth help communities, why they act like it don't exist?<br>If it help us become better people…<br>Why not listen to this?</em></p><p>It's culture merchants and attention dealers<br>People who monetize wounds they never had to live with<br>They study demographics, insecurities, vulnerabilities<br>Then package destruction in attractive forms<br>Till dysfunction become socially normal</p><p>What if the most rebellious thing today…<br>Is discipline?<br>What if the strongest message…<br>Is responsibility?<br>What if growth became louder than chaos?</p><p>Cause music shape culture<br>Culture shape behavior<br>Behavior shape families<br>Families shape neighbors<br>Neighbors shape communities<br>Communities shape nations<br>Everything connected through generations</p><p>Nah.<br>I believe music can still elevate<br>Still educate<br>Still motivate<br>Still inspire people to become somethin' greater<br>Instead of merely becoming a customer later</p><p><em>Why not listen to this?<br>If the poison get streams, why the medicine miss?<br>If the chaos go platinum, why the wisdom dismissed?<br>If the darkness get promoted, why not listen to this?</em></p><p>If music can influence destruction…<br>Then music can influence growth.<br>If words can become weapons…<br>Then words can become tools.<br>And if people are willing to listen…<br>Maybe we can build something worth hearing.</p>`
+      },
+      {
+        num: "06", title: "Am I Trippin?", feat: "", tag: "Single",
+        body: `<p>"Am I trippin… trippin… trippin…"</p><p>Sometimes I sit back and replay conversations…<br>Arguments…<br>Ego…<br>Pride…<br>And I gotta ask myself…<br>Was it even worth it?</p><p>I done lost focus arguin' with fools<br>Tryna prove points to people makin' emotional rules<br>Every conversation turn into combat<br>Like everybody online gotta constantly react<br>I said things outta anger I should've ignored<br>Fed energy to people I should've outgrown<br>Now I'm sittin' in silence replayin' discussions<br>Wonderin' why my spirit feel filled with destruction</p><p><em>Am I trippin?<br>Why I keep givin' my peace away?<br>Why I keep entertainin' things that delay?<br>Every hour spent angry is a debt on my future<br>And stubbornness slowly turn wisdom into tumors</em></p><p>See…<br>Part of me still young and impulsive<br>Wanna respond fast when disrespect get explosive<br>Another part of me older and observant<br>Tellin' me real power move quieter with purpose</p><p>"Was it worth it?"<br>"Worth it?"<br>"Worth jeopardizin' everything?"</p><p>I been battlin' myself more than anybody else<br>Ego on one shoulder, growth somewhere else<br>One side say "crash out, make your point clear"<br>Other side whisper "focus, your future right here"</p><p>And that's the war nobody really see<br>The war between the man and who I used to be<br>Cause pride feel good in the moment sometimes<br>Till consequences pull up and collect over time</p><p><em>Am I trippin?<br>Cause lately I been too emotionally invested<br>In people who probably ain't mentally developed<br>Too much energy spent on temporary friction<br>While my real goals waitin' on my attention</em></p><p>That hit me hard.<br>Like… why am I fightin' to be understood<br>By people comfortable stayin' misunderstood?<br>Why I keep explainin' myself to the blind<br>Then get frustrated when they can't read my mind?</p><p>Maybe…<br>I ain't crazy.<br>Maybe I just finally see<br>That every battle don't deserve me.</p><p>I got dreams bigger than emotional reactions<br>Bigger than arguments fueled by distractions<br>But youth still inside me throwin' punches at reason<br>Still wanna defend every wound every season</p><p>And stubbornness dangerous when mixed with intelligence<br>Cause now you got pride backed by real evidence<br>You know you right so you push even harder<br>Till your own emotions become your saboteur</p><p>That's why I pause now.<br>Analyze every conversation deeper<br>Ask myself, "Does this build me or weaken?"<br>Cause success require discipline under pressure<br>And emotional maturity the real measure</p><p><em>Am I trippin?<br>Or finally growin' into who I should be?<br>Cause lately peace look stronger to me<br>I still got fire, still got fight in my chest<br>But now I'm learnin' every response ain't my test</em></p><p>"Am I trippin…"<br>"Or finally waking up…"</p><p>Maybe the strongest thing I can do…<br>Is stop fighting battles<br>That pull me away from myself.</p>`
+      }
+    ];
 
-  // Mobile menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    function openLyrics(idx) {
+      const d = lyricsData[idx];
+      if (!d.body || d.body.includes('coming soon')) {
+        document.getElementById('modalNum').textContent = d.num;
+        document.getElementById('modalTitle').innerHTML = d.title;
+        document.getElementById('modalFeat').textContent = d.feat;
+        document.getElementById('modalBody').innerHTML = d.body;
+      } else {
+        document.getElementById('modalNum').textContent = d.num;
+        document.getElementById('modalTitle').innerHTML = d.title;
+        document.getElementById('modalFeat').textContent = d.feat;
+        document.getElementById('modalBody').innerHTML = d.body;
+      }
+      document.getElementById('lyricsModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
 
-  // Active nav link on scroll
-  const navAs = document.querySelectorAll('.nav-links a[data-section]');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) navAs.forEach(a => a.classList.toggle('active', a.dataset.section === e.target.id));
+    function closeLyrics() {
+      document.getElementById('lyricsModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeLyricsModal(e) {
+      if (e.target === document.getElementById('lyricsModal')) closeLyrics();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLyrics(); });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Prevent browser scroll restoration
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => window.scrollTo(0, 0));
+
+    // Hamburger menu
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const btn = document.getElementById('hamburger');
+      const open = nav.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Nav active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
+        a.style.borderBottom = a.getAttribute('href') === '#' + current ? '1px solid white' : '';
+        a.style.paddingBottom = a.getAttribute('href') === '#' + current ? '2px' : '';
+      });
     });
-  }, { threshold: 0.35 });
-  document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+  </script>
 
-  // Reveal on scroll
-  const rio = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => rio.observe(el));
-
-  // Form handlers
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('form-ok').style.display = 'block';
-    e.target.reset();
-  }
-  function submitMail(e) {
-    e.preventDefault();
-    e.currentTarget.outerHTML = '<p class="mail-done">Welcome to the inner circle. Wisdom is on the way.</p>';
-  }
-</script>
 </body>
 </html>
