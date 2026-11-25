@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CLAZZ@CT – Clever Lyrics. Real Life. No Filter.</title>
+  <meta name="description" content="CLAZZ@CT – Clever lyrics. Real life. No filter. Official site of the Purpose Wave Entertainment hip-hop artist." />
+  <link rel="canonical" href="https://clazzact.purposewaveent.com/" />
+  <meta property="og:title" content="CLAZZ@CT – Clever Lyrics. Real Life. No Filter." />
+  <meta property="og:url" content="https://clazzact.purposewaveent.com/" />
+  <meta property="og:type" content="music.musician" />
+  <meta property="og:image" content="https://clazzact.purposewaveent.com/img/new-album-cover.png" />
   <link rel="icon" type="image/png" href="img/pwr_favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -371,6 +377,60 @@
       gap: 16px;
       flex-wrap: wrap;
       margin-top: 48px;
+    }
+
+
+    /* ─── NEW ALBUM ─── */
+    .album-feature {
+      display: grid;
+      grid-template-columns: minmax(280px, 5fr) 7fr;
+      gap: 56px;
+      margin-top: 60px;
+      align-items: start;
+    }
+    .album-cover { position: sticky; top: 110px; }
+    .album-cover img { width: 100%; display: block; aspect-ratio: 1; object-fit: cover; }
+    .album-cover::before {
+      content: ''; position: absolute; inset: -8px;
+      border: 1px solid rgba(255,255,255,0.12); pointer-events: none;
+    }
+    .album-badge {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 12px;
+    }
+    .album-title {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 5vw, 72px); line-height: 0.95; letter-spacing: 0.02em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .album-meta {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 28px;
+    }
+    .album-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+    .tracklist { list-style: none; border-top: 1px solid rgba(255,255,255,0.1); }
+    .tracklist li {
+      display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; align-items: baseline;
+      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s;
+    }
+    .tracklist li:hover { background: rgba(255,255,255,0.03); }
+    .tl-num { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gray); }
+    .tl-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .tl-time { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: var(--gray); }
+    .subsection-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-top: 100px;
+    }
+    .subsection-label + .music-grid { margin-top: 24px; }
+    @media (max-width: 900px) {
+      .album-feature { grid-template-columns: 1fr; gap: 40px; }
+      .album-cover { max-width: 480px; position: relative; top: 0; }
+    }
+    @media (max-width: 480px) {
+      .tracklist li { grid-template-columns: 28px 1fr auto; gap: 10px; }
+      .tl-title { font-size: 15px; }
+      .album-actions .btn { flex: 1 1 auto; text-align: center; }
     }
 
     /* ─── ABOUT ─── */
@@ -1088,7 +1148,7 @@
     </ul>
     <div class="nav-social">
       <!-- Spotify -->
-      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener" aria-label="Spotify">
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=SyhKSOXoT0SYueRkORq2wA" target="_blank" rel="noopener" aria-label="Spotify">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.313c-.216.356-.66.46-1.012.244-2.772-1.694-6.258-2.078-10.365-1.138-.396.09-.793-.157-.883-.553-.09-.396.157-.793.553-.883 4.488-1.026 8.337-.585 11.44 1.318.356.216.46.66.267 1.012zm1.47-3.27c-.272.444-.847.583-1.29.313-3.172-1.95-8.01-2.515-11.76-1.376-.49.146-1.005-.132-1.151-.62-.147-.49.13-1.006.62-1.152 4.286-1.302 9.614-.672 13.268 1.568.444.272.583.847.313 1.267zm.127-3.4C15.576 8.498 8.887 8.254 5.158 9.384c-.59.18-1.215-.155-1.394-.745-.18-.59.155-1.215.745-1.395 4.29-1.307 11.418-1.054 15.924 1.522.533.317.709 1.005.392 1.538-.316.532-1.004.708-1.536.392z"/></svg>
       </a>
       <!-- Apple Music -->
@@ -1099,8 +1159,16 @@
       <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" aria-label="YouTube">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
       </a>
+      <!-- YouTube Music -->
+      <a href="https://music.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" aria-label="YouTube Music">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/></svg>
+      </a>
+      <!-- iHeartRadio -->
+      <a href="https://www.iheart.com/artist/clazzct-50904005/" target="_blank" rel="noopener" aria-label="iHeartRadio">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.7 2.4c-2.3 0-4.4 1.2-5.7 3-1.3-1.8-3.4-3-5.7-3C2.4 2.4 0 5.1 0 8.4c0 2.4 1.4 4.3 3 6l7.6 7.2c.8.7 2 .7 2.8 0L21 14.4c1.6-1.7 3-3.6 3-6 0-3.3-2.4-6-6.3-6zM8.2 13.9c-.2.2-.6.2-.8 0C6 12.6 5.2 10.9 5.2 9.1s.8-3.5 2.2-4.8c.2-.2.6-.2.8 0 .2.2.2.6 0 .8-1.1 1.1-1.8 2.5-1.8 4s.7 2.9 1.8 4c.2.2.2.6 0 .8zm2.3-1.6c-.2.2-.6.2-.8 0-.8-.8-1.2-1.9-1.2-3s.4-2.2 1.2-3c.2-.2.6-.2.8 0 .2.2.2.6 0 .8-.6.6-.9 1.4-.9 2.2s.3 1.6.9 2.2c.2.2.2.6 0 .8zM12 10.6c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm2.3 1.7c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8.6-.6.9-1.4.9-2.2s-.3-1.6-.9-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0 .8.8 1.2 1.9 1.2 3s-.4 2.2-1.2 3zm2.3 1.6c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8 1.1-1.1 1.8-2.5 1.8-4s-.7-2.9-1.8-4c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0 1.4 1.3 2.2 3 2.2 4.8s-.8 3.5-2.2 4.8z"/></svg>
+      </a>
       <!-- Tidal -->
-      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener" aria-label="Tidal">
+      <a href="https://tidal.com/artist/80331157/u" target="_blank" rel="noopener" aria-label="Tidal">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004L20.02 12l4.004-4.004-4.004-4.004-4.004 4.004-4.004-4.004zM8.008 12.008l-4.004 4.004L8.008 20.016l4.004-4.004-4.004-4.004z"/></svg>
       </a>
       <!-- Facebook -->
@@ -1108,11 +1176,11 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
       <!-- Deezer -->
-      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener" aria-label="Deezer">
+      <a href="https://www.deezer.com/en/artist/393756031" target="_blank" rel="noopener" aria-label="Deezer">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.944 17.773h3.944v2.25h-3.944v-2.25zm-5.21.34h3.945v1.91h-3.945v-1.91zm-5.212.617h3.945v1.293H8.522v-1.293zm-5.212.455H7.255v.838H3.31v-.838zM18.944 14.078h3.944v2.847h-3.944v-2.847zm-5.21.433h3.945v2.414h-3.945v-2.414zm-5.212.781h3.945v1.633H8.522v-1.633zm-5.212.563H7.255v1.07H3.31v-1.07zm15.634-5.01h3.944v3.594h-3.944v-3.594zm-5.21.549h3.945v3.045h-3.945v-3.045zm-5.212.987h3.945v2.058H8.522v-2.058zm-5.212.712H7.255v1.346H3.31v-1.346zm15.634-5.64h3.944v4.53h-3.944v-4.53zm-5.21.692h3.945v3.838h-3.945V7.145zM8.522 7.88h3.945v3.104H8.522V7.88zm-5.212.9H7.255v1.7H3.31V8.78zm15.634-5.8h3.944v4.992h-3.944V2.98zm-5.21.875h3.945v4.117h-3.945V3.855zm-5.212 1.24h3.945v2.877H8.522V5.095z"/></svg>
       </a>
       <!-- Amazon Music -->
-      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener" aria-label="Amazon Music">
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC?ref=dm_sh_qaSyNu5UlRIkxibyyla16fHmg" target="_blank" rel="noopener" aria-label="Amazon Music">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.699-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.076-1.051-.872-1.238-1.276-1.814-2.106-1.734 1.768-2.962 2.296-5.209 2.296-2.66 0-4.731-1.641-4.731-4.927 0-2.566 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.097v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.818-1.774-.818-1.206 0-2.282.618-2.545 1.9-.054.285-.261.567-.549.582l-3.061-.33c-.259-.056-.548-.266-.472-.66.703-3.71 4.056-4.826 7.059-4.826 1.537 0 3.546.41 4.758 1.574 1.538 1.436 1.392 3.352 1.392 5.438v4.927c0 1.484.616 2.134 1.192 2.935.204.285.249.628-.01.839-.647.541-1.794 1.537-2.419 2.065zm3.11 1.179c-5.992 4.285-14.683 1.824-19.222-3.368-.234-.264.024-.516.27-.323 4.929 3.311 11.031 4.291 16.427 2.33.333-.12.616.218.525.461zm1.433-1.648c-.316-.402-2.083-.189-2.879-.096-.243.03-.28-.182-.062-.334 1.409-.99 3.726-.705 3.996-.373.273.335-.072 2.65-1.393 3.754-.202.17-.396.08-.307-.144.298-.741.966-2.401.645-2.807z"/></svg>
       </a>
     </div>
@@ -1130,13 +1198,16 @@
     <a href="#shop" onclick="closeMobileNav()">Shop</a>
     <a href="#contact" onclick="closeMobileNav()">Contact</a>
     <div class="mobile-nav-social">
-      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=SyhKSOXoT0SYueRkORq2wA" target="_blank" rel="noopener">Spotify</a>
       <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener">Apple Music</a>
       <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener">Tidal</a>
+      <a href="https://music.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube Music</a>
+      <a href="https://www.iheart.com/artist/clazzct-50904005/" target="_blank" rel="noopener">iHeartRadio</a>
+      <a href="https://youtu.be/kKhxhKinDxo?si=KkHcMmsNoscWjLuh" target="_blank" rel="noopener">VEVO</a>
+      <a href="https://tidal.com/artist/80331157/u" target="_blank" rel="noopener">Tidal</a>
       <a href="https://www.facebook.com/profile.php?id=61592201805222" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener">Deezer</a>
-      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener">Amazon Music</a>
+      <a href="https://www.deezer.com/en/artist/393756031" target="_blank" rel="noopener">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC?ref=dm_sh_qaSyNu5UlRIkxibyyla16fHmg" target="_blank" rel="noopener">Amazon Music</a>
     </div>
   </div>
 
@@ -1168,14 +1239,62 @@
     </div>
 
     <div class="streaming-links reveal">
-      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener" class="btn btn-outline">Spotify</a>
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=SyhKSOXoT0SYueRkORq2wA" target="_blank" rel="noopener" class="btn btn-outline">Spotify</a>
       <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener" class="btn btn-outline">Apple Music</a>
       <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" class="btn btn-outline">YouTube</a>
-      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener" class="btn btn-outline">Tidal</a>
-      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener" class="btn btn-outline">Deezer</a>
-      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener" class="btn btn-outline">Amazon Music</a>
+      <a href="https://music.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" class="btn btn-outline">YouTube Music</a>
+      <a href="https://www.iheart.com/artist/clazzct-50904005/" target="_blank" rel="noopener" class="btn btn-outline">iHeartRadio</a>
+      <a href="https://youtu.be/kKhxhKinDxo?si=KkHcMmsNoscWjLuh" target="_blank" rel="noopener" class="btn btn-outline">VEVO</a>
+      <a href="https://tidal.com/artist/80331157/u" target="_blank" rel="noopener" class="btn btn-outline">Tidal</a>
+      <a href="https://www.deezer.com/en/artist/393756031" target="_blank" rel="noopener" class="btn btn-outline">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC?ref=dm_sh_qaSyNu5UlRIkxibyyla16fHmg" target="_blank" rel="noopener" class="btn btn-outline">Amazon Music</a>
     </div>
 
+
+    <!-- NEW ALBUM — set the title in .album-title and the cover alt text -->
+    <div class="album-feature reveal">
+      <div class="album-cover">
+        <img src="img/new-album-cover.png" alt="CLAZZ@CT new album cover" />
+      </div>
+      <div>
+        <p class="album-badge">New Album · Out Now</p>
+        <h3 class="album-title">New Album</h3>
+        <p class="album-meta">CLAZZ@CT · 24 Tracks · 1 hr 49 min</p>
+        <div class="album-actions">
+          <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=SyhKSOXoT0SYueRkORq2wA" target="_blank" rel="noopener" class="btn btn-primary">Stream on Spotify</a>
+          <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener" class="btn btn-outline">Apple Music</a>
+          <a href="https://music.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener" class="btn btn-outline">YouTube Music</a>
+        </div>
+        <ol class="tracklist">
+          <li><span class="tl-num">01</span><span class="tl-title">Which Me?</span><span class="tl-time">4:45</span></li>
+          <li><span class="tl-num">02</span><span class="tl-title">Don't Do Dumb Stuff on Smartphones</span><span class="tl-time">4:00</span></li>
+          <li><span class="tl-num">03</span><span class="tl-title">Free?</span><span class="tl-time">3:56</span></li>
+          <li><span class="tl-num">04</span><span class="tl-title">The Degree Was Never the Destination</span><span class="tl-time">5:01</span></li>
+          <li><span class="tl-num">05</span><span class="tl-title">Gander in the Sky</span><span class="tl-time">7:56</span></li>
+          <li><span class="tl-num">06</span><span class="tl-title">Racing to an Unknown Finish Line</span><span class="tl-time">4:34</span></li>
+          <li><span class="tl-num">07</span><span class="tl-title">I Thought We Were Cool</span><span class="tl-time">3:29</span></li>
+          <li><span class="tl-num">08</span><span class="tl-title">For Real, For Real</span><span class="tl-time">4:19</span></li>
+          <li><span class="tl-num">09</span><span class="tl-title">Fallacy</span><span class="tl-time">2:59</span></li>
+          <li><span class="tl-num">10</span><span class="tl-title">What Part of the Game Is That?</span><span class="tl-time">4:12</span></li>
+          <li><span class="tl-num">11</span><span class="tl-title">That's On Me (Jam Session Version)</span><span class="tl-time">5:02</span></li>
+          <li><span class="tl-num">12</span><span class="tl-title">Faceplant</span><span class="tl-time">4:00</span></li>
+          <li><span class="tl-num">13</span><span class="tl-title">Return on Intrinsic Value</span><span class="tl-time">4:59</span></li>
+          <li><span class="tl-num">14</span><span class="tl-title">Got Me Confused</span><span class="tl-time">3:31</span></li>
+          <li><span class="tl-num">15</span><span class="tl-title">The Currency of Commitment</span><span class="tl-time">4:20</span></li>
+          <li><span class="tl-num">16</span><span class="tl-title">The Reveal</span><span class="tl-time">3:54</span></li>
+          <li><span class="tl-num">17</span><span class="tl-title">The Coloring Book</span><span class="tl-time">5:00</span></li>
+          <li><span class="tl-num">18</span><span class="tl-title">No Brakes</span><span class="tl-time">3:42</span></li>
+          <li><span class="tl-num">19</span><span class="tl-title">Big Moves</span><span class="tl-time">4:18</span></li>
+          <li><span class="tl-num">20</span><span class="tl-title">Double Dribble</span><span class="tl-time">5:37</span></li>
+          <li><span class="tl-num">21</span><span class="tl-title">Growing Pains</span><span class="tl-time">5:00</span></li>
+          <li><span class="tl-num">22</span><span class="tl-title">What a Rush</span><span class="tl-time">5:03</span></li>
+          <li><span class="tl-num">23</span><span class="tl-title">Good Company</span><span class="tl-time">5:06</span></li>
+          <li><span class="tl-num">24</span><span class="tl-title">Glitch in the System</span><span class="tl-time">4:36</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <p class="subsection-label reveal">Singles</p>
     <div class="music-grid reveal">
       <div class="track-card" onclick="window.open('https://music.amazon.com/tracks/B0H3C296N2','_blank')" style="cursor:pointer;">
         <div class="track-placeholder" style="background-image:url('img/album-cover.png'); background-size:cover; background-position:center; filter:grayscale(30%) brightness(0.6);">
@@ -1248,8 +1367,8 @@
           <span class="stat-label">Singles Released</span>
         </div>
         <div>
-          <span class="stat-number">1</span>
-          <span class="stat-label">Studio Album</span>
+          <span class="stat-number">2</span>
+          <span class="stat-label">Studio Albums</span>
         </div>
         <div>
           <span class="stat-number">∞</span>
@@ -1372,7 +1491,7 @@
             allowfullscreen>
           </iframe>
         </div>
-        <div class="media-caption">CLAZZ@CT — Official Video</div>
+        <div class="media-caption">CLAZZ@CT — Official Video · <a href="https://youtu.be/kKhxhKinDxo?si=KkHcMmsNoscWjLuh" target="_blank" rel="noopener" style="color:inherit;">Watch on VEVO ↗</a></div>
       </div>
 
     </div>
@@ -1438,15 +1557,18 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo">CLAZZ@CT</span>
-    <span class="footer-copy">© 2024 CLAZZ@CT · Purpose Wave Entertainment. All rights reserved.</span>
+    <span class="footer-copy">© 2026 CLAZZ@CT · Purpose Wave Entertainment. All rights reserved.</span>
     <div class="footer-social">
-      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=8j5thPGDRpqCugGhHHXV6Q" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://open.spotify.com/artist/3UgwRu8Fx42Y3EU1ELfXAZ?si=SyhKSOXoT0SYueRkORq2wA" target="_blank" rel="noopener">Spotify</a>
       <a href="https://music.apple.com/us/artist/clazz-ct/6774511606" target="_blank" rel="noopener">Apple Music</a>
       <a href="https://www.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://tidal.com/artist/80331157" target="_blank" rel="noopener">Tidal</a>
+      <a href="https://music.youtube.com/channel/UC2MzNmtrq4_5QR0ZPBD3YuA" target="_blank" rel="noopener">YouTube Music</a>
+      <a href="https://www.iheart.com/artist/clazzct-50904005/" target="_blank" rel="noopener">iHeartRadio</a>
+      <a href="https://youtu.be/kKhxhKinDxo?si=KkHcMmsNoscWjLuh" target="_blank" rel="noopener">VEVO</a>
+      <a href="https://tidal.com/artist/80331157/u" target="_blank" rel="noopener">Tidal</a>
       <a href="https://www.facebook.com/profile.php?id=61592201805222" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://link.deezer.com/s/33Woz17urxPeNAEmBbSqP" target="_blank" rel="noopener">Deezer</a>
-      <a href="https://music.amazon.com/artists/B0H3C6BCSC/clazzact?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_HPQmVr7P2V7L80WkQaUF95GPz" target="_blank" rel="noopener">Amazon Music</a>
+      <a href="https://www.deezer.com/en/artist/393756031" target="_blank" rel="noopener">Deezer</a>
+      <a href="https://music.amazon.com/artists/B0H3C6BCSC?ref=dm_sh_qaSyNu5UlRIkxibyyla16fHmg" target="_blank" rel="noopener">Amazon Music</a>
     </div>
   </footer>
 
